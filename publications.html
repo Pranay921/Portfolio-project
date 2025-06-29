@@ -32,13 +32,13 @@
             overflow-x: hidden;
         }
         
-        /* Navbar Styles - Same as before */
+        /* Navbar Styles */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 1.5rem 5%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,7 +57,7 @@
         
         .logo {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--pop3);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -167,36 +167,36 @@
             font-size: 1.5rem;
             color: var(--dark);
             cursor: pointer;
+            z-index: 1001;
         }
         
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .nav-links {
-                gap: 1.5rem;
-            }
-        }
-        
+        /* Mobile Menu Styles */
         @media (max-width: 768px) {
             .navbar {
                 padding: 1rem 5%;
             }
             
             .logo {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 70px;
                 left: -100%;
                 width: 80%;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 70px);
                 background: white;
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 2rem;
                 box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
                 transition: left 0.3s ease;
+                z-index: 999;
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                overflow-y: auto;
             }
             
             .nav-links.active {
@@ -205,6 +205,7 @@
             
             .nav-item {
                 width: 100%;
+                margin-bottom: 1rem;
             }
             
             .dropdown-content {
@@ -212,6 +213,8 @@
                 box-shadow: none;
                 display: none;
                 padding-left: 1rem;
+                background: none;
+                width: 100%;
             }
             
             .dropdown:hover .dropdown-content {
@@ -233,24 +236,17 @@
             }
         }
         
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.5rem;
-            }
-        }
-        /* ... */
-        
         /* Publications Page Styles */
         .publications-page {
-            padding: 8rem 5% 4rem;
+            padding: 7rem 5% 4rem;
             min-height: 100vh;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
         
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
             text-align: center;
             color: var(--pop3);
             position: relative;
@@ -262,21 +258,21 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 80px;
             height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             border-radius: 2px;
         }
         
         .publication-category {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
         
         .category-title {
-            font-size: 2rem;
+            font-size: 1.6rem;
             color: var(--pop1);
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
@@ -290,9 +286,9 @@
         
         .publication-item {
             background: white;
-            padding: 1.8rem;
+            padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border-radius: 12px;
+            border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             border-left: 4px solid var(--primary);
@@ -312,14 +308,14 @@
         }
         
         .publication-authors {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #555;
             margin-bottom: 0.5rem;
             font-style: italic;
         }
         
         .publication-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--dark);
             margin-bottom: 0.8rem;
@@ -327,7 +323,7 @@
         }
         
         .publication-journal {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--dark);
             margin-bottom: 0.5rem;
             font-weight: 500;
@@ -336,7 +332,7 @@
         .publication-details {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 0.8rem;
             margin-top: 0.8rem;
         }
         
@@ -344,7 +340,7 @@
             background-color: var(--accent);
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
         }
         
@@ -352,7 +348,7 @@
             display: inline-block;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             background-color: var(--secondary);
             color: white;
@@ -404,7 +400,30 @@
             line-height: 1.6;
         }
         
-        /* Make publication items clickable */
+        /* Mobile Abstract Styles */
+        @media (max-width: 768px) {
+            .publication-abstract {
+                position: static;
+                display: none;
+                margin-top: 1rem;
+                padding: 1rem;
+                box-shadow: none;
+                border: 1px solid #eee;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                pointer-events: auto;
+            }
+            
+            .publication-item.active .publication-abstract {
+                display: block;
+            }
+            
+            .publication-abstract::after {
+                display: none;
+            }
+        }
+        
         .publication-link {
             position: absolute;
             top: 0;
@@ -414,46 +433,48 @@
             z-index: 10;
         }
         
+        .mobile-abstract-toggle {
+            display: none;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-abstract-toggle {
+                display: inline-block;
+            }
+        }
+        
         /* Responsive Design */
         @media (max-width: 1024px) {
             .section-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
             .category-title {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
         }
         
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.2rem;
+            .publications-page {
+                padding: 6rem 5% 3rem;
             }
             
-            .category-title {
-                font-size: 1.6rem;
-            }
-            
-            .publication-item {
-                padding: 1.5rem;
-            }
-            
-            .publication-title {
-                font-size: 1.2rem;
-            }
-            
-            .publication-abstract {
-                display: none; /* Hide abstract tooltips on mobile */
-            }
-        }
-        
-        @media (max-width: 480px) {
             .section-title {
                 font-size: 1.8rem;
+                margin-bottom: 1.5rem;
             }
             
             .category-title {
                 font-size: 1.4rem;
+                margin-bottom: 1rem;
             }
             
             .publication-item {
@@ -465,7 +486,46 @@
             }
             
             .publication-authors, .publication-journal {
+                font-size: 0.95rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .publications-page {
+                padding: 5rem 5% 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .category-title {
+                font-size: 1.3rem;
+            }
+            
+            .publication-item {
+                padding: 1rem;
+            }
+            
+            .publication-title {
                 font-size: 1rem;
+            }
+            
+            .publication-authors, .publication-journal {
+                font-size: 0.9rem;
+            }
+            
+            .publication-details {
+                gap: 0.5rem;
+            }
+            
+            .publication-detail, .publication-status {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.6rem;
+            }
+            
+            .abstract-text {
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -523,6 +583,7 @@
                         <span class="publication-detail">Q1</span>
                         <span class="publication-detail">IF 4.1</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://pubs.aip.org/aip/pof/article-abstract/36/12/123117/3326132/Viscous-dissipation-impacts-on-a-developing?redirectedFrom=PDF" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -538,6 +599,7 @@
                         <span class="publication-detail">Q1</span>
                         <span class="publication-detail">IF 4.1</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://pubs.aip.org/aip/pof/article-abstract/36/9/093119/3313753/Maximal-transport-of-non-Newtonian-fluid-in-an?redirectedFrom=fulltext" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -553,6 +615,7 @@
                         <span class="publication-detail">Q1</span>
                         <span class="publication-detail">IF 6.4</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://www.sciencedirect.com/science/article/abs/pii/S0735193324003488?dgcid=coauthor" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -568,6 +631,7 @@
                         <span class="publication-detail">Q2</span>
                         <span class="publication-detail">IF 2.8</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://link.springer.com/article/10.1140/epjp/s13360-024-05515-2" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -583,6 +647,7 @@
                         <span class="publication-detail">Q3</span>
                         <span class="publication-detail">IF 1.4</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://doi.org/10.1615/SpecialTopicsRevPorousMedia.2023045062" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -598,6 +663,7 @@
                         <span class="publication-detail">Q3</span>
                         <span class="publication-detail">IF 1.4</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://doi.org/10.1615/SpecialTopicsRevPorousMedia.2023049201" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -614,6 +680,7 @@
                         <span class="publication-detail">Q2</span>
                         <span class="publication-detail">IF 2.8</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="#" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -630,6 +697,7 @@
                         <span class="publication-detail">Q3</span>
                         <span class="publication-detail">IF 1.7</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="#" class="publication-link" target="_blank"></a>
                 </li>
             </ul>
@@ -647,6 +715,7 @@
                     <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
                     <h4 class="publication-title">"Effect of magnetic field on the developing thermal field in a duct filled with porous media under local thermal non-equilibrium with a nonlinear flow model"</h4>
                     <p class="publication-journal">Journal of Advance Research in Fluid Mechanics and Thermal Sciences, 2023; 103: 87-104</p>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://doi.org/10.37934/arfmts.103.1.87104" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -658,6 +727,7 @@
                     <p class="publication-authors">A. Gupta, R. S. Reddy, B. M. Girish, Nitish Gupta</p>
                     <h4 class="publication-title">"Nonlinear transient analysis of the plate with active constrained 0-3 viscoelastic composite layer using fractional order derivative model"</h4>
                     <p class="publication-journal">NanoWorld J, 2023; 9(S1): S508-S512</p>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://doi.org/10.17756/nwj.2023-s1-096" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -669,6 +739,7 @@
                     <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
                     <h4 class="publication-title">"An analytical study of the impact of an inclined magnetic field on Couette flow with Jeffrey fluid under local thermal non-equilibrium (LTNE) and viscous dissipation"</h4>
                     <p class="publication-journal">Applied Mechanics and Materials (AMM); 2024: 919</p>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://doi.org/10.4028/p-2QZJ3O" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -680,6 +751,7 @@
                     <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
                     <h4 class="publication-title">"Impact of magnetic field on heat transfer with viscous dissipation at the conduction limit in a channel with a centred porous layer: Constant wall temperature"</h4>
                     <p class="publication-journal">Multidisciplinary Science Journal, 2024; 6: e2024ss0109</p>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://doi.org/10.31893/multiscience.2024ss0109" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -691,6 +763,7 @@
                     <p class="publication-authors">D. Bhargavi, A. Kumar, P. A. L. Narayana, Nitish Gupta</p>
                     <h4 class="publication-title">"An analytical study of streamline flow through a porous filled duct with permeable wall"</h4>
                     <p class="publication-journal">Journal of Nanofluids, 2024; 13: 371–380</p>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://www.ingentaconnect.com/content/asp/jon/2024/00000013/00000002/art00007;jsessionid=79isrmjfpemsa.x-ic-live-02" class="publication-link" target="_blank"></a>
                 </li>
             </ul>
@@ -711,6 +784,7 @@
                     <div class="publication-details">
                         <span class="publication-detail">Hardcover ISBN 978-3-031-69133-1</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://link.springer.com/chapter/10.1007/978-3-031-69134-8_32" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -725,6 +799,7 @@
                     <div class="publication-details">
                         <span class="publication-detail">Hardcover ISBN 978-3-031-69133-1</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://link.springer.com/chapter/10.1007/978-3-031-69134-8_47" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -739,6 +814,7 @@
                     <div class="publication-details">
                         <span class="publication-detail">Hardcover ISBN 978-981-19-9905-5</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://link.springer.com/chapter/10.1007/978-981-19-9906-2_33" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -753,6 +829,7 @@
                     <div class="publication-details">
                         <span class="publication-detail">Hardcover ISBN 978-981-99-5612-8</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://link.springer.com/chapter/10.1007/978-981-99-5613-5_5" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -767,6 +844,7 @@
                     <div class="publication-details">
                         <span class="publication-status">Article in press</span>
                     </div>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="#" class="publication-link" target="_blank"></a>
                 </li>
             </ul>
@@ -783,7 +861,9 @@
                     </div>
                     <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
                     <h4 class="publication-title">"Impact of magnetic field on heat transfer in a parallel plate channel with a centered porous layer: Darcy-Brinkman model"</h4>
-                    <p class="publication-journal">AIP Conference Proceedings, 2023; 2768, 020014</p> complete the code                    <a href="https://doi.org/10.1063/5.0147311" class="publication-link" target="_blank"></a>
+                    <p class="publication-journal">AIP Conference Proceedings, 2023; 2768, 020014</p>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <a href="https://doi.org/10.1063/5.0147311" class="publication-link" target="_blank"></a>
                 </li>
                 
                 <li class="publication-item">
@@ -794,10 +874,11 @@
                     <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
                     <h4 class="publication-title">"Numerical analysis of viscous dissipation effect on developing thermal field in porous filled duct under local thermal non-equilibrium"</h4>
                     <p class="publication-journal">AIP Conference Proceedings, 2023; 2768, 020015</p>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://doi.org/10.1063/5.0147312" class="publication-link" target="_blank"></a>
                 </li>
                 
-                <!-- <li class="publication-item">
+                <li class="publication-item">
                     <div class="publication-abstract">
                         <h5 class="abstract-title">Abstract</h5>
                         <p class="abstract-text">Study of axial conduction effects in porous-filled ducts under local thermal non-equilibrium with constant wall heat flux boundary conditions.</p>
@@ -805,14 +886,15 @@
                     <p class="publication-authors">D. Bhargavi, Nitish Gupta</p>
                     <h4 class="publication-title">"A study of axial conduction in porous filled duct under local thermal non-equilibrium: Constant wall heat flux"</h4>
                     <p class="publication-journal">AIP Conference Proceedings, 2023; 2768, 020016</p>
+                    <button class="mobile-abstract-toggle">Show Abstract</button>
                     <a href="https://doi.org/10.1063/5.0147313" class="publication-link" target="_blank"></a>
-                </li> -->
+                </li>
             </ul>
         </div>
     </section>
 
     <script>
-        // JavaScript for navbar hide/show on scroll
+        // Navbar hide/show on scroll
         let lastScroll = 0;
         const navbar = document.querySelector('.navbar');
         
@@ -833,7 +915,7 @@
             lastScroll = currentScroll;
         });
         
-        // Mobile menu functionality
+        // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
         
@@ -841,7 +923,7 @@
             navLinks.classList.toggle('active');
         });
         
-        // Dropdown functionality for mobile
+        // Mobile dropdown toggle
         const dropdowns = document.querySelectorAll('.dropdown');
         
         dropdowns.forEach(dropdown => {
@@ -855,28 +937,37 @@
             });
         });
         
+        // Mobile abstract toggle
+        const abstractToggles = document.querySelectorAll('.mobile-abstract-toggle');
+        
+        abstractToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const publicationItem = toggle.closest('.publication-item');
+                publicationItem.classList.toggle('active');
+                
+                if (publicationItem.classList.contains('active')) {
+                    toggle.textContent = 'Hide Abstract';
+                } else {
+                    toggle.textContent = 'Show Abstract';
+                }
+            });
+        });
+        
         // Animation for publication items
         const publicationItems = document.querySelectorAll('.publication-item');
         
-        const animatePublications = () => {
-            publicationItems.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('visible');
-                }, 100 * index);
-            });
-        };
-        
-        // Intersection Observer for publication items
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animatePublications();
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
                 }
             });
         }, { threshold: 0.1 });
         
-        observer.observe(document.querySelector('.publications-page'));
+        publicationItems.forEach(item => {
+            observer.observe(item);
+        });
         
         // Close mobile menu when clicking outside
         document.addEventListener('click', (e) => {
