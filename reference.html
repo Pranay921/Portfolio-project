@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nitish Gupta | Home</title>
+    <title>Nitish Gupta | References</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -260,108 +260,11 @@
             }
         }
         
-        /* Introduction Section */
-        .intro-container {
+        /* References Section Styles */
+        .references-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 10rem 5% 5rem;
-        }
-        
-        .intro-section {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-        
-        .profile-image-container {
-            flex: 0 0 300px;
-        }
-        
-        .profile-image {
-            width: 100%;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .intro-content {
-            flex: 1;
-        }
-        
-        .intro-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--pop3);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .intro-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-        
-        .intro-subtitle {
-            font-size: 1.3rem;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .intro-text {
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-        
-        .intro-text p {
-            margin-bottom: 1rem;
-        }
-        
-        .qualification-btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-        }
-        
-        .qualification-btn:hover {
-            background-color: var(--pop2);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-        }
-        
-        /* Research Interests Section */
-        .research-section {
-            padding: 4rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: linear-gradient(to bottom, #f5f7fa 0%, #e8ebf0 100%);
-            border-radius: 20px;
-            margin-top: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 8rem 5% 5rem;
         }
         
         .section-heading {
@@ -384,53 +287,96 @@
             background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
-        .research-grid {
+        .reference-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
+        }
+        
+        .reference-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
         
-        .research-card {
+        .reference-card {
             background: white;
+            border-radius: 12px;
             padding: 1.8rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
-            border-top: 4px solid var(--primary);
+            border-left: 4px solid var(--primary);
+            position: relative;
+            overflow: hidden;
         }
         
-        .research-card:hover {
+        .reference-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
         }
         
-        .research-title {
+        .reference-role {
+            font-size: 0.85rem;
+            color: white;
+            background-color: var(--pop3);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .reference-name {
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .reference-title {
+            font-size: 0.9rem;
+            color: #555;
             margin-bottom: 1rem;
+            font-style: italic;
+        }
+        
+        .reference-institution {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.5rem;
         }
         
-        .research-title i {
-            color: var(--primary);
-            font-size: 1.5rem;
-        }
-        
-        .research-content {
-            color: #555;
-            line-height: 1.7;
-        }
-        
-        .applications {
-            margin-top: 1rem;
-            padding-left: 1rem;
-            border-left: 3px solid var(--secondary);
-            font-style: italic;
+        .reference-address {
+            font-size: 0.9rem;
             color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .reference-email {
+            font-size: 0.9rem;
+            color: var(--pop3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .reference-email:hover {
+            color: var(--primary);
+        }
+        
+        .reference-email i {
+            font-size: 1rem;
         }
         
         /* CV & Social Links Section */
@@ -494,59 +440,22 @@
         
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .intro-section {
-                gap: 3rem;
-            }
-            
-            .profile-image-container {
-                flex: 0 0 250px;
-            }
-            
-            .profile-image {
-                height: 250px;
-            }
-            
-            .intro-title {
-                font-size: 2.2rem;
+            .references-container {
+                padding: 8rem 5% 3rem;
             }
         }
         
         @media (max-width: 768px) {
-            .intro-container {
-                padding: 8rem 5% 3rem;
-            }
-            
-            .intro-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .profile-image-container {
-                flex: 0 0 auto;
-                margin-bottom: 2rem;
-            }
-            
-            .profile-image {
-                width: 220px;
-                height: 220px;
-            }
-            
-            .intro-title::after {
-                left: 50%;
-                transform: translateX(-50%);
-                width: 80%;
-            }
-            
             .section-heading {
                 font-size: 1.8rem;
             }
             
-            .research-grid {
+            .reference-grid {
                 grid-template-columns: 1fr;
             }
             
-            .research-title {
-                font-size: 1.2rem;
+            .reference-section {
+                padding: 2rem;
             }
         }
         
@@ -555,21 +464,16 @@
                 font-size: 1.5rem;
             }
             
-            .intro-title {
-                font-size: 1.8rem;
+            .section-heading {
+                font-size: 1.6rem;
             }
             
-            .intro-subtitle {
-                font-size: 1.1rem;
+            .reference-section {
+                padding: 1.5rem;
             }
             
-            .intro-text {
-                font-size: 1rem;
-            }
-            
-            .profile-image {
-                width: 180px;
-                height: 180px;
+            .reference-card {
+                padding: 1.5rem;
             }
             
             .social-links {
@@ -591,7 +495,7 @@
         <div class="logo">Nitish Gupta</div>
         <ul class="nav-links">
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
                 <div class="dropdown-content">
                     <a href="qualification.html">Education Qualification</a>
                 </div>
@@ -619,74 +523,100 @@
         </button>
     </nav>
     
-    <!-- Introduction Section -->
-    <div class="intro-container">
-        <section class="intro-section">
-            <div class="profile-image-container">
-                <img src="markup_Nitish.jpg" alt="Dr. Nitish Gupta" class="profile-image">
-            </div>
-            
-            <div class="intro-content">
-                <h1 class="intro-title">Dr. Nitish Gupta</h1>
-                <h2 class="intro-subtitle">Ph.D., M.Sc., Department of Mathematics</h2>
-                <h3 class="intro-subtitle">National Institute of Technology Warangal (NIT Warangal), India</h3>
-                
-                <div class="intro-text">
-                    <p>I have completed my Ph.D. in the Department of Mathematics at the <a href="https://www.nitw.ac.in/">National Institute of Technology Warangal (NIT Warangal)</a>, located in Telangana, India, under the supervision of <a href="https://erp.nitw.ac.in/ext/profile/ma-bhargavi">Prof. D. Bhargavi</a>. My doctoral research focuses on enhancing heat transfer in porous media under the local thermal non-equilibrium (LTNE) model.</p>
-                    
-                    <p>I am currently working as a Postdoctoral Fellow in the School of Basic Sciences at the <a href="https://www.iitbbs.ac.in/">Indian Institute of Technology Bhubaneswar (IITBBS)</a>, India under the supervision of <a href="https://old.iitbbs.ac.in/profile.php/sekhartvs/">Prof. T.V.S. Sekhar</a>. Prior to this, I served as an Assistant Professor in the School of Chemical Engineering and Physical Sciences at <a href="https://www.lpu.in/">Lovely Professional University (LPU)</a>, Punjab (NIRF Rank 27). During my tenure at LPU, I was actively involved in teaching Probability and Statistics, academic mentoring, and curriculum development.</p>
+    <!-- References Section -->
+    <div class="references-container">
+        <h2 class="section-heading">Professional References</h2>
+        
+        <section class="reference-section">
+            <div class="reference-grid">
+                <!-- Reference Card 1 -->
+                <div class="reference-card">
+                    <span class="reference-role">Ph.D. Thesis Supervisor</span>
+                    <h3 class="reference-name">Dr. D. Bhargavi</h3>
+                    <p class="reference-title">Associate Professor</p>
+                    <p class="reference-institution">
+                        <i class="fas fa-university"></i> Department of Mathematics
+                    </p>
+                    <p class="reference-address">
+                        National Institute of Technology Warangal<br>
+                        Warangal-506004, Telangana, India
+                    </p>
+                    <a href="mailto:bhargavi@nitw.ac.in" class="reference-email">
+                        <i class="fas fa-envelope"></i> bhargavi@nitw.ac.in
+                    </a>
                 </div>
                 
-                <a href="qualification.html" class="qualification-btn">View Qualifications</a>
+                <!-- Reference Card 2 -->
+                <div class="reference-card">
+                    <span class="reference-role">Postdoctoral Advisor</span>
+                    <h3 class="reference-name">Prof. T. V. S. Sekhar</h3>
+                    <p class="reference-title">Professor</p>
+                    <p class="reference-institution">
+                        <i class="fas fa-university"></i> School of Basic Sciences (Mathematics)
+                    </p>
+                    <p class="reference-address">
+                        Indian Institute of Technology (IIT) Bhubaneswar<br>
+                        Bhubaneswar – 752 050, India
+                    </p>
+                    <a href="mailto:sekhar@iitbbs.ac.in" class="reference-email">
+                        <i class="fas fa-envelope"></i> sekhartvs@iitbbs.ac.in
+                    </a>
+                </div>
+                
+                <!-- Reference Card 3 -->
+                <div class="reference-card">
+                    <span class="reference-role">Ph.D. Doctoral Scrutiny Committee</span>
+                    <h3 class="reference-name">Prof. J. V. Ramana Murthy</h3>
+                    <p class="reference-title">Professor and HAG</p>
+                    <p class="reference-institution">
+                        <i class="fas fa-university"></i> Department of Mathematics
+                    </p>
+                    <p class="reference-address">
+                        National Institute of Technology Warangal<br>
+                        Warangal-506004, Telangana, India
+                    </p>
+                    <a href="mailto:jvr@nitw.ac.in" class="reference-email">
+                        <i class="fas fa-envelope"></i> jvr@nitw.ac.in
+                    </a>
+                </div>
+                
+                <!-- Reference Card 4 -->
+                <div class="reference-card">
+                    <span class="reference-role">Academic Reference</span>
+                    <h3 class="reference-name">Prof. Ameeya Kumar Nayak</h3>
+                    <p class="reference-title">Professor</p>
+                    <p class="reference-institution">
+                        <i class="fas fa-university"></i> Department of Mathematics
+                    </p>
+                    <p class="reference-address">
+                        Indian Institute of Technology (IIT) Roorkee<br>
+                        Uttarakhand-247667, India
+                    </p>
+                    <a href="mailto:ameeya.nayak@ma.iitr.ac.in" class="reference-email">
+                        <i class="fas fa-envelope"></i> ameeya.nayak@ma.iitr.ac.in
+                    </a>
+                </div>
+                
+                <!-- Reference Card 5 -->
+                <div class="reference-card">
+                    <span class="reference-role">International Collaborator</span>
+                    <h3 class="reference-name">Prof. Kuppalapalle Vajravelu</h3>
+                    <p class="reference-title">Professor</p>
+                    <p class="reference-institution">
+                        <i class="fas fa-university"></i> Department of Mathematics
+                    </p>
+                    <p class="reference-address">
+                        Department of Mechanical, Materials & Aerospace Engineering<br>
+                        University of Central Florida<br>
+                        Orlando-32816, USA
+                    </p>
+                    <a href="mailto:kuppalapalle.vajravelu@ucf.edu" class="reference-email">
+                        <i class="fas fa-envelope"></i> kuppalapalle.vajravelu@ucf.edu
+                    </a>
+                </div>
             </div>
         </section>
     </div>
-    
-    <!-- Research Interests Section -->
-    <section class="research-section">
-        <h2 class="section-heading">Research Interests</h2>
-        
-        <div class="research-grid">
-            <div class="research-card">
-                <h3 class="research-title"><i class="fas fa-water"></i>Current Research Focus</h3>
-                <div class="research-content">
-                    <p>Flow Through Porous Media in Geological Materials</p>
-                    <div class="applications">
-                        <p>Possible applications:</p>
-                        <p>• Groundwater management</p>
-                        <p>• Oil and gas reservoir engineering</p>
-                        <p>• Carbon sequestration</p>
-                        <p>• Geothermal energy</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="research-card">
-                <h3 class="research-title"><i class="fas fa-flask"></i>Other Research Interests</h3>
-                <div class="research-content">
-                    <p>• Porous microchannel</p>
-                    <p>• Geothermal convection</p>
-                    <p>• Bioconvection</p>
-                    <p>• Stability analysis</p>
-                    <p>• Neural Networks</p>
-                    <p>• Numerical methods</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CV & Social Links Section -->
-    <section class="links-section">
-        <a href="https://drive.google.com/file/d/1dLBvx9DA8MxU76YIRcEfxu8RMClmIVPn/view" class="cv-button">Download Curriculum Vitae</a>
-        
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/nitish-gupta-2686a8127/" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://scholar.google.com/citations?user=yL4LwBkAAAAJ&hl=en" class="social-link google-scholar"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://www.researchgate.net/profile/Nitish-Gupta-12" class="social-link research-gate"><i class="fab fa-researchgate"></i></a>
-            <a href="https://orcid.org/signin" class="social-link orcid"><i class="fab fa-orcid"></i></a>
-            <a href="https://www.instagram.com/nitish_08oneness/?igsh=MXExNm5ndWU4Mm9hMw%3D%3D#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-    </section>
     
     <script>
         // Navbar hide/show on scroll
@@ -764,10 +694,10 @@
             }
         });
         
-        // Animation for research cards
-        const researchCards = document.querySelectorAll('.research-card');
+        // Animation for reference cards
+        const referenceCards = document.querySelectorAll('.reference-card');
         
-        const researchObserver = new IntersectionObserver((entries) => {
+        const referenceObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
@@ -776,11 +706,11 @@
             });
         }, { threshold: 0.1 });
         
-        researchCards.forEach(card => {
+        referenceCards.forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'all 0.6s ease';
-            researchObserver.observe(card);
+            referenceObserver.observe(card);
         });
     </script>
 </body>

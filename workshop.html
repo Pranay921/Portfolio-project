@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nitish Gupta | Home</title>
+    <title>Nitish Gupta | Workshops</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -260,108 +260,11 @@
             }
         }
         
-        /* Introduction Section */
-        .intro-container {
+        /* Workshop Section Styles */
+        .workshop-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 10rem 5% 5rem;
-        }
-        
-        .intro-section {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-        
-        .profile-image-container {
-            flex: 0 0 300px;
-        }
-        
-        .profile-image {
-            width: 100%;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .intro-content {
-            flex: 1;
-        }
-        
-        .intro-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--pop3);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .intro-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-        
-        .intro-subtitle {
-            font-size: 1.3rem;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .intro-text {
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-        
-        .intro-text p {
-            margin-bottom: 1rem;
-        }
-        
-        .qualification-btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-        }
-        
-        .qualification-btn:hover {
-            background-color: var(--pop2);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-        }
-        
-        /* Research Interests Section */
-        .research-section {
-            padding: 4rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: linear-gradient(to bottom, #f5f7fa 0%, #e8ebf0 100%);
-            border-radius: 20px;
-            margin-top: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 8rem 5% 4rem;
         }
         
         .section-heading {
@@ -384,203 +287,96 @@
             background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+        .workshop-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
         }
         
-        .research-card {
-            background: white;
-            padding: 1.8rem;
-            border-radius: 15px;
+        .workshop-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            border-top: 4px solid var(--primary);
+            border-left: 4px solid var(--secondary);
         }
         
-        .research-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .workshop-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
         
-        .research-title {
-            font-size: 1.3rem;
-            font-weight: 700;
+        .workshop-title {
+            font-size: 1.2rem;
+            font-weight: 600;
             color: var(--dark);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
             gap: 0.8rem;
         }
         
-        .research-title i {
+        .workshop-title i {
             color: var(--primary);
-            font-size: 1.5rem;
         }
         
-        .research-content {
+        .workshop-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
             color: #555;
-            line-height: 1.7;
         }
         
-        .applications {
-            margin-top: 1rem;
-            padding-left: 1rem;
-            border-left: 3px solid var(--secondary);
-            font-style: italic;
-            color: #666;
+        .workshop-date {
+            background-color: var(--accent);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
         }
         
-        /* CV & Social Links Section */
-        .links-section {
-            padding: 3rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
+        .workshop-organizer {
+            background-color: #e8ebf0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
         }
         
-        .cv-button {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--pop3);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.3);
+        .workshop-description {
+            color: #555;
+            line-height: 1.6;
         }
         
-        .cv-button:hover {
-            background-color: var(--pop2);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 99, 146, 0.4);
+        .gian-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px dashed var(--secondary);
         }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .social-link:hover {
-            transform: translateY(-5px) scale(1.1);
-            color: var(--primary);
-        }
-        
-        .linkedin { color: #0A66C2; }
-        .instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); color: white; }
-        .google-scholar { color: #4285F4; }
-        .research-gate { color: #00CCBB; }
-        .orcid { color: #A6CE39; }
         
         /* Responsive Design */
-        @media (max-width: 1024px) {
-            .intro-section {
-                gap: 3rem;
-            }
-            
-            .profile-image-container {
-                flex: 0 0 250px;
-            }
-            
-            .profile-image {
-                height: 250px;
-            }
-            
-            .intro-title {
-                font-size: 2.2rem;
-            }
-        }
-        
         @media (max-width: 768px) {
-            .intro-container {
-                padding: 8rem 5% 3rem;
-            }
-            
-            .intro-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .profile-image-container {
-                flex: 0 0 auto;
-                margin-bottom: 2rem;
-            }
-            
-            .profile-image {
-                width: 220px;
-                height: 220px;
-            }
-            
-            .intro-title::after {
-                left: 50%;
-                transform: translateX(-50%);
-                width: 80%;
+            .workshop-container {
+                padding: 7rem 5% 3rem;
             }
             
             .section-heading {
                 font-size: 1.8rem;
             }
             
-            .research-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .research-title {
-                font-size: 1.2rem;
+            .workshop-title {
+                font-size: 1.1rem;
             }
         }
         
         @media (max-width: 480px) {
-            .logo {
-                font-size: 1.5rem;
+            .workshop-details {
+                flex-direction: column;
+                gap: 0.5rem;
             }
             
-            .intro-title {
-                font-size: 1.8rem;
-            }
-            
-            .intro-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .intro-text {
+            .workshop-title {
                 font-size: 1rem;
-            }
-            
-            .profile-image {
-                width: 180px;
-                height: 180px;
-            }
-            
-            .social-links {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-            
-            .social-link {
-                width: 45px;
-                height: 45px;
-                font-size: 1.3rem;
             }
         }
     </style>
@@ -591,7 +387,7 @@
         <div class="logo">Nitish Gupta</div>
         <ul class="nav-links">
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
                 <div class="dropdown-content">
                     <a href="qualification.html">Education Qualification</a>
                 </div>
@@ -619,74 +415,162 @@
         </button>
     </nav>
     
-    <!-- Introduction Section -->
-    <div class="intro-container">
-        <section class="intro-section">
-            <div class="profile-image-container">
-                <img src="markup_Nitish.jpg" alt="Dr. Nitish Gupta" class="profile-image">
+    <!-- Workshop Section -->
+    <div class="workshop-container">
+        <h2 class="section-heading">Workshops Attended</h2>
+        
+        <div class="workshop-list">
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-laptop-code"></i> Five days of online STTP on "MATLAB-based Teaching Learning in Mathematics, Science, & Engineering"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">May 18–22, 2020</span>
+                    <span class="workshop-organizer">D Y PATIL University, Maharashtra, India</span>
+                </div>
             </div>
             
-            <div class="intro-content">
-                <h1 class="intro-title">Dr. Nitish Gupta</h1>
-                <h2 class="intro-subtitle">Ph.D., M.Sc., Department of Mathematics</h2>
-                <h3 class="intro-subtitle">National Institute of Technology Warangal (NIT Warangal), India</h3>
-                
-                <div class="intro-text">
-                    <p>I have completed my Ph.D. in the Department of Mathematics at the <a href="https://www.nitw.ac.in/">National Institute of Technology Warangal (NIT Warangal)</a>, located in Telangana, India, under the supervision of <a href="https://erp.nitw.ac.in/ext/profile/ma-bhargavi">Prof. D. Bhargavi</a>. My doctoral research focuses on enhancing heat transfer in porous media under the local thermal non-equilibrium (LTNE) model.</p>
-                    
-                    <p>I am currently working as a Postdoctoral Fellow in the School of Basic Sciences at the <a href="https://www.iitbbs.ac.in/">Indian Institute of Technology Bhubaneswar (IITBBS)</a>, India under the supervision of <a href="https://old.iitbbs.ac.in/profile.php/sekhartvs/">Prof. T.V.S. Sekhar</a>. Prior to this, I served as an Assistant Professor in the School of Chemical Engineering and Physical Sciences at <a href="https://www.lpu.in/">Lovely Professional University (LPU)</a>, Punjab (NIRF Rank 27). During my tenure at LPU, I was actively involved in teaching Probability and Statistics, academic mentoring, and curriculum development.</p>
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-file-alt"></i> Five-day FDP program on "LaTeX"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">May 19–23, 2020</span>
+                    <span class="workshop-organizer">Anand International College of Engineering in association with Spoken Tutorial Project, IIT Bombay, India</span>
                 </div>
-                
-                <a href="qualification.html" class="qualification-btn">View Qualifications</a>
             </div>
-        </section>
-    </div>
-    
-    <!-- Research Interests Section -->
-    <section class="research-section">
-        <h2 class="section-heading">Research Interests</h2>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-water"></i> National webinar on "Fluid Dynamics"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">June 23, 2020</span>
+                    <span class="workshop-organizer">Department of Mathematics and Statistics, Manipur University, Jaipur, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-chalkboard-teacher"></i> Virtual Math Fest (VMF-2020)</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">July 20–26, 2020</span>
+                    <span class="workshop-organizer">Supported by the Institute of Mathematical Sciences, Chennai, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-calculator"></i> National webinar on "Numerical and Scientific Computing"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">July 20, 2020</span>
+                    <span class="workshop-organizer">Department of Mathematics and Statistics, Manipur University, Jaipur, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-pen-fancy"></i> International webinar on "Scientific Writing for Journals"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">July 27, 2020</span>
+                    <span class="workshop-organizer">Springer Nature in collaboration with NIT Jamshedpur, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-water"></i> Five days National Webinar on "Fluid Dynamics from a Mathematicians Viewpoint"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">August 9–13, 2020</span>
+                    <span class="workshop-organizer">Department of Mathematics, School of Science, GITAM University, Hyderabad, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-square-root-alt"></i> Five days of STP on "Numerical Solutions of Differential Equations"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">Sept 16–20, 2020</span>
+                    <span class="workshop-organizer">Department of Mathematics, National Institute of Technology (NIT) Jalandhar, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-infinity"></i> One-week workshop (under IEQIP-III) on "ODEs, PDEs, and Integral Equations: Their Engineering Context (OPIE-2020)"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">Sept 21–26, 2020</span>
+                    <span class="workshop-organizer">Department of Mathematics, National Institute of Technology (NIT) Uttarakhand, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-fire"></i> e-Colloquium on "Recent Advancement in Fluid Flow and Heat Transfer"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">Oct 19–25, 2020</span>
+                    <span class="workshop-organizer">Department of Mathematics, Indian Institute of Technology (IIT) Roorkee, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-chart-line"></i> Five days FDP program on "Teaching and Learning Strategies of Differential Equations & Applications in Science and Engineering"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">Dec 28, 2020 – Jan 1, 2021</span>
+                    <span class="workshop-organizer">Department of Mathematics, National Institute of Technology (NIT) Warangal, Telangana, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-superscript"></i> Five-day international online workshop on "Advanced Numerical Techniques for Differential Equations (ANTDE-22)"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">June 06-10, 2022</span>
+                    <span class="workshop-organizer">MNIT Jaipur, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-wind"></i> Short-term course titled "Applications of CFD to engineering problems with hands-on practice"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">October 17-21, 2022</span>
+                    <span class="workshop-organizer">NIT Rourkela, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-atom"></i> Five-day international workshop on "Applicable Mathematics for Science and Engineering - Recent Advances (AMSE-2023)"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">February 16-20, 2023</span>
+                    <span class="workshop-organizer">VIT-AP University, India</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-robot"></i> Two days National Level Online Workshop on AI Tools for Mastery in Modern</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">Sept 02-03, 2023</span>
+                    <span class="workshop-organizer">Teaching Indian Mathematics Professor Association and Infinity Research and Development Institute</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-project-diagram"></i> Workshop on "Recent Advances in Differential Equations and Applications"</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">Oct 27-31, 2023</span>
+                    <span class="workshop-organizer">VIT-AP University</span>
+                </div>
+            </div>
+            
+            <div class="workshop-item">
+                <h3 class="workshop-title"><i class="fas fa-network-wired"></i> International symposium on Complete Flux Scheme for Convection Diffusion Reaction Models, Fluid Flow and Allied Topics</h3>
+                <div class="workshop-details">
+                    <span class="workshop-date">Jan 18-21, 2024</span>
+                    <span class="workshop-organizer">Indian Institute of Technology Kanpur, India</span>
+                </div>
+            </div>
+        </div>
         
-        <div class="research-grid">
-            <div class="research-card">
-                <h3 class="research-title"><i class="fas fa-water"></i>Current Research Focus</h3>
-                <div class="research-content">
-                    <p>Flow Through Porous Media in Geological Materials</p>
-                    <div class="applications">
-                        <p>Possible applications:</p>
-                        <p>• Groundwater management</p>
-                        <p>• Oil and gas reservoir engineering</p>
-                        <p>• Carbon sequestration</p>
-                        <p>• Geothermal energy</p>
+        <div class="gian-section">
+            <h2 class="section-heading">GIAN Courses Attended</h2>
+            
+            <div class="workshop-list">
+                <div class="workshop-item">
+                    <h3 class="workshop-title"><i class="fas fa-graduation-cap"></i> "Linear and Non-linear Hydrodynamic Stability: Theory and Computation"</h3>
+                    <div class="workshop-details">
+                        <span class="workshop-date">April 11-24, 2022</span>
+                        <span class="workshop-organizer">Department of Mathematics, NIT Warangal</span>
                     </div>
                 </div>
             </div>
-            
-            <div class="research-card">
-                <h3 class="research-title"><i class="fas fa-flask"></i>Other Research Interests</h3>
-                <div class="research-content">
-                    <p>• Porous microchannel</p>
-                    <p>• Geothermal convection</p>
-                    <p>• Bioconvection</p>
-                    <p>• Stability analysis</p>
-                    <p>• Neural Networks</p>
-                    <p>• Numerical methods</p>
-                </div>
-            </div>
         </div>
-    </section>
-    
-    <!-- CV & Social Links Section -->
-    <section class="links-section">
-        <a href="https://drive.google.com/file/d/1dLBvx9DA8MxU76YIRcEfxu8RMClmIVPn/view" class="cv-button">Download Curriculum Vitae</a>
-        
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/nitish-gupta-2686a8127/" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://scholar.google.com/citations?user=yL4LwBkAAAAJ&hl=en" class="social-link google-scholar"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://www.researchgate.net/profile/Nitish-Gupta-12" class="social-link research-gate"><i class="fab fa-researchgate"></i></a>
-            <a href="https://orcid.org/signin" class="social-link orcid"><i class="fab fa-orcid"></i></a>
-            <a href="https://www.instagram.com/nitish_08oneness/?igsh=MXExNm5ndWU4Mm9hMw%3D%3D#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-    </section>
+    </div>
     
     <script>
         // Navbar hide/show on scroll
@@ -764,10 +648,10 @@
             }
         });
         
-        // Animation for research cards
-        const researchCards = document.querySelectorAll('.research-card');
+        // Animation for workshop items
+        const workshopItems = document.querySelectorAll('.workshop-item');
         
-        const researchObserver = new IntersectionObserver((entries) => {
+        const workshopObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
@@ -776,11 +660,11 @@
             });
         }, { threshold: 0.1 });
         
-        researchCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.6s ease';
-            researchObserver.observe(card);
+        workshopItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'all 0.6s ease';
+            workshopObserver.observe(item);
         });
     </script>
 </body>

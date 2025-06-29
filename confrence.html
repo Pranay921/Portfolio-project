@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nitish Gupta | Home</title>
+    <title>Nitish Gupta | Conferences</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
@@ -260,108 +260,11 @@
             }
         }
         
-        /* Introduction Section */
-        .intro-container {
+        /* Conference Section Styles */
+        .conference-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 10rem 5% 5rem;
-        }
-        
-        .intro-section {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-        
-        .profile-image-container {
-            flex: 0 0 300px;
-        }
-        
-        .profile-image {
-            width: 100%;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .intro-content {
-            flex: 1;
-        }
-        
-        .intro-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--pop3);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .intro-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-        
-        .intro-subtitle {
-            font-size: 1.3rem;
-            color: var(--dark);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .intro-text {
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-        
-        .intro-text p {
-            margin-bottom: 1rem;
-        }
-        
-        .qualification-btn {
-            display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-        }
-        
-        .qualification-btn:hover {
-            background-color: var(--pop2);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-        }
-        
-        /* Research Interests Section */
-        .research-section {
-            padding: 4rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: linear-gradient(to bottom, #f5f7fa 0%, #e8ebf0 100%);
-            border-radius: 20px;
-            margin-top: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 8rem 5% 5rem;
         }
         
         .section-heading {
@@ -384,53 +287,84 @@
             background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .research-card {
+        .conference-section {
             background: white;
-            padding: 1.8rem;
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--primary);
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 3rem;
         }
         
-        .research-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .research-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-        
-        .research-title i {
+        .sub-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             color: var(--primary);
-            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
         }
         
-        .research-content {
+        .sub-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        .conference-list {
+            list-style-type: none;
+        }
+        
+        .conference-item {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .conference-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .conference-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+        }
+        
+        .conference-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .conference-details {
             color: #555;
             line-height: 1.7;
+            font-size: 0.95rem;
         }
         
-        .applications {
-            margin-top: 1rem;
-            padding-left: 1rem;
-            border-left: 3px solid var(--secondary);
-            font-style: italic;
-            color: #666;
+        .conference-highlight {
+            display: inline-block;
+            background-color: var(--accent);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
         }
         
         /* CV & Social Links Section */
@@ -494,59 +428,22 @@
         
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .intro-section {
-                gap: 3rem;
-            }
-            
-            .profile-image-container {
-                flex: 0 0 250px;
-            }
-            
-            .profile-image {
-                height: 250px;
-            }
-            
-            .intro-title {
-                font-size: 2.2rem;
+            .conference-container {
+                padding: 8rem 5% 3rem;
             }
         }
         
         @media (max-width: 768px) {
-            .intro-container {
-                padding: 8rem 5% 3rem;
-            }
-            
-            .intro-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .profile-image-container {
-                flex: 0 0 auto;
-                margin-bottom: 2rem;
-            }
-            
-            .profile-image {
-                width: 220px;
-                height: 220px;
-            }
-            
-            .intro-title::after {
-                left: 50%;
-                transform: translateX(-50%);
-                width: 80%;
-            }
-            
             .section-heading {
                 font-size: 1.8rem;
             }
             
-            .research-grid {
-                grid-template-columns: 1fr;
+            .sub-heading {
+                font-size: 1.4rem;
             }
             
-            .research-title {
-                font-size: 1.2rem;
+            .conference-section {
+                padding: 2rem;
             }
         }
         
@@ -555,21 +452,24 @@
                 font-size: 1.5rem;
             }
             
-            .intro-title {
-                font-size: 1.8rem;
+            .section-heading {
+                font-size: 1.6rem;
             }
             
-            .intro-subtitle {
-                font-size: 1.1rem;
+            .sub-heading {
+                font-size: 1.2rem;
             }
             
-            .intro-text {
+            .conference-section {
+                padding: 1.5rem;
+            }
+            
+            .conference-title {
                 font-size: 1rem;
             }
             
-            .profile-image {
-                width: 180px;
-                height: 180px;
+            .conference-details {
+                font-size: 0.9rem;
             }
             
             .social-links {
@@ -591,7 +491,7 @@
         <div class="logo">Nitish Gupta</div>
         <ul class="nav-links">
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
                 <div class="dropdown-content">
                     <a href="qualification.html">Education Qualification</a>
                 </div>
@@ -619,74 +519,98 @@
         </button>
     </nav>
     
-    <!-- Introduction Section -->
-    <div class="intro-container">
-        <section class="intro-section">
-            <div class="profile-image-container">
-                <img src="markup_Nitish.jpg" alt="Dr. Nitish Gupta" class="profile-image">
-            </div>
-            
-            <div class="intro-content">
-                <h1 class="intro-title">Dr. Nitish Gupta</h1>
-                <h2 class="intro-subtitle">Ph.D., M.Sc., Department of Mathematics</h2>
-                <h3 class="intro-subtitle">National Institute of Technology Warangal (NIT Warangal), India</h3>
+    <!-- Conference Section -->
+    <div class="conference-container">
+        <h2 class="section-heading">Conference Presentations</h2>
+        
+        <section class="conference-section">
+            <h3 class="sub-heading">Papers Presented</h3>
+            <ul class="conference-list">
+                <li class="conference-item">
+                    <p class="conference-title">Numerical investigation of fluid flow and heat transfer in a channel fully filled with porous medium under local thermal non-equilibrium (LTNE)</p>
+                    <p class="conference-details">Presented at the 66th Congress of the Indian Society of Theoretical and Applied Mechanics ISTAM (An International Meet), held on Dec 4, 2022, organized by Vellore Institute of Technology (VIT AP) Andhra Pradesh, India.</p>
+                </li>
                 
-                <div class="intro-text">
-                    <p>I have completed my Ph.D. in the Department of Mathematics at the <a href="https://www.nitw.ac.in/">National Institute of Technology Warangal (NIT Warangal)</a>, located in Telangana, India, under the supervision of <a href="https://erp.nitw.ac.in/ext/profile/ma-bhargavi">Prof. D. Bhargavi</a>. My doctoral research focuses on enhancing heat transfer in porous media under the local thermal non-equilibrium (LTNE) model.</p>
-                    
-                    <p>I am currently working as a Postdoctoral Fellow in the School of Basic Sciences at the <a href="https://www.iitbbs.ac.in/">Indian Institute of Technology Bhubaneswar (IITBBS)</a>, India under the supervision of <a href="https://old.iitbbs.ac.in/profile.php/sekhartvs/">Prof. T.V.S. Sekhar</a>. Prior to this, I served as an Assistant Professor in the School of Chemical Engineering and Physical Sciences at <a href="https://www.lpu.in/">Lovely Professional University (LPU)</a>, Punjab (NIRF Rank 27). During my tenure at LPU, I was actively involved in teaching Probability and Statistics, academic mentoring, and curriculum development.</p>
-                </div>
+                <li class="conference-item">
+                    <p class="conference-title">The influence of magnetic effect in a channel partially filled with porous material: A numerical investigation</p>
+                    <p class="conference-details">Presented at the 3rd International Conference on "Mathematical Modeling, Computational Intelligence Techniques, and Renewable Energy (MMCITRE-2022)", held during 4-6th March 2022, organized by the University of Technology, Sydney, Australia, in association with the Forum for Interdisciplinary Mathematics (FIM) Gujarat Chapter, UABC - Mexico and Pandit Deendayal Energy University, Gandhinagar, India.</p>
+                </li>
                 
-                <a href="qualification.html" class="qualification-btn">View Qualifications</a>
-            </div>
+                <li class="conference-item">
+                    <p class="conference-title">Impact of magnetic field on heat transfer in a parallel plate channel with a centred porous layer: Darcy-Brinkman model</p>
+                    <p class="conference-details">Presented at 1st International Conference on Computational Applied Sciences & its Applications (ICCASA 2022), held during 28-29th April 2022 organized by University of Engineering & Management, Jaipur, India.</p>
+                </li>
+                
+                <li class="conference-item">
+                    <p class="conference-title">Effect of Local Thermal Non-Equilibrium in the entrance region of a duct filled with porous Material</p>
+                    <p class="conference-details">Submitted at the International Interdisciplinary Conference on Mathematics, Engineering, and Science (MESIICON 2022) held on November 11–12, 2022, organized by Dr. B. C. Roy Engineering College, Durgapur.</p>
+                </li>
+                
+                <li class="conference-item">
+                    <p class="conference-title">Effect of Magnetic Field on the Developing Thermal Field in a Duct Filled with Porous Media under Local Thermal Non-Equilibrium with a Nonlinear Flow Model</p>
+                    <p class="conference-details">Submitted at the International Conference on Recent Advances in Fluid Mechanics (ICRAFM), held on October 4-6, 2022, organized by Manipal Institute of Technology, MAHE, Manipal.</p>
+                </li>
+                
+                <li class="conference-item">
+                    <p class="conference-title">Impact of Magnetic Field on Heat Transfer with Viscous Dissipation at the Conduction Limit in a Channel with a Centred Porous Layer: Constant Wall Temperature</p>
+                    <p class="conference-details">Presented at the International Conference on Mathematics and its Applications in Technology (ICMAT 2023) organized by SASTRA Deemed to be University, Kumbakonam, India (during March 24–25, 2023).</p>
+                </li>
+                
+                <li class="conference-item">
+                    <p class="conference-title">An Analytical Study of the Impact of an Inclined Magnetic Field on Couette Flow with Jeffrey Fluid under Local Thermal Non-Equilibrium (LTNE) and Viscous Dissipation</p>
+                    <p class="conference-details">Presented at the International Conference on Advancements in Materials, Manufacturing & Automation organized by the Department of Mechanical Engineering, Amrita School of Engineering, Chennai Campus, India (during April 7–8, 2023).</p>
+                    <span class="conference-highlight">Best Paper Award</span>
+                </li>
+                
+                <li class="conference-item">
+                    <p class="conference-title">Effect of Magnetic Field on Couette Flow in a Fluid-Saturated Porous-Filled Duct under the Local Thermal Non-Equilibrium with Viscous Dissipation</p>
+                    <p class="conference-details">Presented at the International Conference on Advances in Mechanical Engineering and Material Science organized by VIT-AP University, Andhra Pradesh, India (during April 20–22, 2023).</p>
+                </li>
+                
+                <li class="conference-item">
+                    <p class="conference-title">A computational study on heat transfer in a couple-stress fluid in a channel packed with porous material under the local thermal nonequilibrium model</p>
+                    <p class="conference-details">Presented at 68th Congress of Indian Society of Theoretical and Applied Mechanics, ISTAM (An International Conference), held on December 7–9, 2023, organized by National Institute of Technology Warangal (NIT Warangal), Telangana, India.</p>
+                </li>
+                
+                <li class="conference-item">
+                    <p class="conference-title">Influence of local thermal non-equilibrium on forced convection heat transfer in a duct packed with porous medium: iso-thermal walls</p>
+                    <p class="conference-details">Presented at the 27th National and 5th International the Indian Society for Heat and Mass Transfer (ISHMT) - and the American Society of Mechanical Engineers (ASME) Heat and Mass Transfer Conference (IHMTC2023), held on December 14–17, 2023, organized by Indian Institute of Technology, Patna (IIT Patna), India.</p>
+                </li>
+                
+                <li class="conference-item">
+                    <p class="conference-title">Impact of Magnetic Field at the Entrance Region of Porous Filled Duct under the LTNE Model with Viscous Dissipation and Axial Conduction</p>
+                    <p class="conference-details">Presentation at International Conference on Emerging Frontiers in Nonlinear Complex Systems, Computational Intelligence and their Applications, held on February 07–09, 2024, organized by the School of Advanced Sciences, Vellore Institute of Technology, Chennai, India.</p>
+                </li>
+                
+                <li class="conference-item">
+                    <p class="conference-title">Casson Fluid Flow in a Duct with Iso-thermal Walls under the Local Thermal Non-Equilibrium Framework: Temperature Distribution</p>
+                    <p class="conference-details">Presentation at the 2nd International Conference on Nonlinear Dynamics and Applications (ICNDA 2024), held on February 21-23, 2024, organized by Sikkim Manipal University, Majitar, East-Sikkim, India.</p>
+                </li>
+            </ul>
+        </section>
+        
+        <section class="conference-section">
+            <h3 class="sub-heading">Conference Participation</h3>
+            <ul class="conference-list">
+                <li class="conference-item">
+                    <p class="conference-title">International Conference on "Computational Heat and Mass Transfer (ICCHMT-2015)"</p>
+                    <p class="conference-details">Held on November 30–December 02, 2015, organized by National Institute of Technology Warangal (NIT Warangal), Telangana, India.</p>
+                </li>
+                
+                <li class="conference-item">
+                    <p class="conference-title">International conference on "Emerging trends in Vedic Mathematics and applications in Science, Technology and Social Science Research (ETVM-ASTSSR-2020)"</p>
+                    <p class="conference-details">Held on August 16–17, 2020, organized by Special Centre of e-Learning, Jawaharlal Nehru University (JNU), New Delhi, India.</p>
+                </li>
+                
+                <li class="conference-item">
+                    <p class="conference-title">International Conference on "Computational Modeling in Science and Engineering & 32nd Congress of Andhra Pradesh and Telangana Society for Mathematical Sciences"</p>
+                    <p class="conference-details">Held on October 14–17, 2023, organized by National Institute of Technology Warangal (NIT Warangal), Telangana, India.</p>
+                </li>
+            </ul>
         </section>
     </div>
     
-    <!-- Research Interests Section -->
-    <section class="research-section">
-        <h2 class="section-heading">Research Interests</h2>
-        
-        <div class="research-grid">
-            <div class="research-card">
-                <h3 class="research-title"><i class="fas fa-water"></i>Current Research Focus</h3>
-                <div class="research-content">
-                    <p>Flow Through Porous Media in Geological Materials</p>
-                    <div class="applications">
-                        <p>Possible applications:</p>
-                        <p>• Groundwater management</p>
-                        <p>• Oil and gas reservoir engineering</p>
-                        <p>• Carbon sequestration</p>
-                        <p>• Geothermal energy</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="research-card">
-                <h3 class="research-title"><i class="fas fa-flask"></i>Other Research Interests</h3>
-                <div class="research-content">
-                    <p>• Porous microchannel</p>
-                    <p>• Geothermal convection</p>
-                    <p>• Bioconvection</p>
-                    <p>• Stability analysis</p>
-                    <p>• Neural Networks</p>
-                    <p>• Numerical methods</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CV & Social Links Section -->
-    <section class="links-section">
-        <a href="https://drive.google.com/file/d/1dLBvx9DA8MxU76YIRcEfxu8RMClmIVPn/view" class="cv-button">Download Curriculum Vitae</a>
-        
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/nitish-gupta-2686a8127/" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://scholar.google.com/citations?user=yL4LwBkAAAAJ&hl=en" class="social-link google-scholar"><i class="fas fa-graduation-cap"></i></a>
-            <a href="https://www.researchgate.net/profile/Nitish-Gupta-12" class="social-link research-gate"><i class="fab fa-researchgate"></i></a>
-            <a href="https://orcid.org/signin" class="social-link orcid"><i class="fab fa-orcid"></i></a>
-            <a href="https://www.instagram.com/nitish_08oneness/?igsh=MXExNm5ndWU4Mm9hMw%3D%3D#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-    </section>
+   
     
     <script>
         // Navbar hide/show on scroll
@@ -764,10 +688,10 @@
             }
         });
         
-        // Animation for research cards
-        const researchCards = document.querySelectorAll('.research-card');
+        // Animation for conference items
+        const conferenceItems = document.querySelectorAll('.conference-item');
         
-        const researchObserver = new IntersectionObserver((entries) => {
+        const conferenceObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
@@ -776,11 +700,11 @@
             });
         }, { threshold: 0.1 });
         
-        researchCards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'all 0.6s ease';
-            researchObserver.observe(card);
+        conferenceItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'all 0.6s ease';
+            conferenceObserver.observe(item);
         });
     </script>
 </body>
