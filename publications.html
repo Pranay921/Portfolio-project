@@ -372,16 +372,6 @@
             pointer-events: none;
         }
         
-        .publication-abstract::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 20px;
-            border-width: 10px;
-            border-style: solid;
-            border-color: white transparent transparent transparent;
-        }
-        
         .publication-item:hover .publication-abstract {
             opacity: 1;
             visibility: visible;
@@ -402,24 +392,46 @@
         
         /* Mobile Abstract Styles */
         @media (max-width: 768px) {
-            .publication-abstract {
-                position: static;
+               .publication-abstract {
+                position: relative;
                 display: none;
                 margin-top: 1rem;
-                padding: 1rem;
+                padding: 0;
                 box-shadow: none;
-                border: 1px solid #eee;
+                border: none;
                 opacity: 1;
                 visibility: visible;
                 transform: none;
                 pointer-events: auto;
+                bottom: auto;
+                left: auto;
+                width: 100%;
+                background: transparent;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease;
             }
             
-            .publication-item.active .publication-abstract {
+             .publication-item.active .publication-abstract {
                 display: block;
+                max-height: 800px; /* Increased from 500px to 800px */
+                padding: 1.2rem; /* Increased padding */
+                background: #f9f9f9;
+                border-radius: 8px;
+                margin-top: 1rem;
+                margin-bottom: 1.5rem; /* Increased margin */
+                box-shadow: 0 3px 8px rgba(0,0,0,0.1); /* Stronger shadow */
             }
             
-            .publication-abstract::after {
+             .abstract-text {
+                font-size: 0.95rem; /* Slightly larger font */
+                line-height: 1.6; /* Better line spacing */
+                padding: 0.8rem 0; /* More padding */
+                margin-bottom: 0.5rem;
+            }
+
+            /* Remove hover effect on mobile */
+            .publication-item:hover .publication-abstract {
                 display: none;
             }
         }
@@ -429,7 +441,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: calc(100% - 40px); /* Leave space for abstract toggle */
             z-index: 10;
         }
         
@@ -443,11 +455,24 @@
             font-size: 0.8rem;
             margin-top: 0.5rem;
             cursor: pointer;
+            position: relative;
+            z-index: 20; /* Above the publication link */
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-abstract-toggle i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .publication-item.active .mobile-abstract-toggle i {
+            transform: rotate(180deg);
         }
         
         @media (max-width: 768px) {
             .mobile-abstract-toggle {
-                display: inline-block;
+                display: inline-flex;
+                align-items: center;
             }
         }
         
@@ -583,7 +608,7 @@
                         <span class="publication-detail">Q1</span>
                         <span class="publication-detail">IF 4.1</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://pubs.aip.org/aip/pof/article-abstract/36/12/123117/3326132/Viscous-dissipation-impacts-on-a-developing?redirectedFrom=PDF" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -599,7 +624,7 @@
                         <span class="publication-detail">Q1</span>
                         <span class="publication-detail">IF 4.1</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://pubs.aip.org/aip/pof/article-abstract/36/9/093119/3313753/Maximal-transport-of-non-Newtonian-fluid-in-an?redirectedFrom=fulltext" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -615,7 +640,7 @@
                         <span class="publication-detail">Q1</span>
                         <span class="publication-detail">IF 6.4</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://www.sciencedirect.com/science/article/abs/pii/S0735193324003488?dgcid=coauthor" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -631,7 +656,7 @@
                         <span class="publication-detail">Q2</span>
                         <span class="publication-detail">IF 2.8</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://link.springer.com/article/10.1140/epjp/s13360-024-05515-2" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -647,7 +672,7 @@
                         <span class="publication-detail">Q3</span>
                         <span class="publication-detail">IF 1.4</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://doi.org/10.1615/SpecialTopicsRevPorousMedia.2023045062" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -663,7 +688,7 @@
                         <span class="publication-detail">Q3</span>
                         <span class="publication-detail">IF 1.4</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://doi.org/10.1615/SpecialTopicsRevPorousMedia.2023049201" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -680,7 +705,7 @@
                         <span class="publication-detail">Q2</span>
                         <span class="publication-detail">IF 2.8</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="#" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -697,7 +722,7 @@
                         <span class="publication-detail">Q3</span>
                         <span class="publication-detail">IF 1.7</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="#" class="publication-link" target="_blank"></a>
                 </li>
             </ul>
@@ -715,7 +740,7 @@
                     <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
                     <h4 class="publication-title">"Effect of magnetic field on the developing thermal field in a duct filled with porous media under local thermal non-equilibrium with a nonlinear flow model"</h4>
                     <p class="publication-journal">Journal of Advance Research in Fluid Mechanics and Thermal Sciences, 2023; 103: 87-104</p>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://doi.org/10.37934/arfmts.103.1.87104" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -727,7 +752,7 @@
                     <p class="publication-authors">A. Gupta, R. S. Reddy, B. M. Girish, Nitish Gupta</p>
                     <h4 class="publication-title">"Nonlinear transient analysis of the plate with active constrained 0-3 viscoelastic composite layer using fractional order derivative model"</h4>
                     <p class="publication-journal">NanoWorld J, 2023; 9(S1): S508-S512</p>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://doi.org/10.17756/nwj.2023-s1-096" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -739,7 +764,7 @@
                     <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
                     <h4 class="publication-title">"An analytical study of the impact of an inclined magnetic field on Couette flow with Jeffrey fluid under local thermal non-equilibrium (LTNE) and viscous dissipation"</h4>
                     <p class="publication-journal">Applied Mechanics and Materials (AMM); 2024: 919</p>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://doi.org/10.4028/p-2QZJ3O" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -751,7 +776,7 @@
                     <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
                     <h4 class="publication-title">"Impact of magnetic field on heat transfer with viscous dissipation at the conduction limit in a channel with a centred porous layer: Constant wall temperature"</h4>
                     <p class="publication-journal">Multidisciplinary Science Journal, 2024; 6: e2024ss0109</p>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://doi.org/10.31893/multiscience.2024ss0109" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -763,7 +788,7 @@
                     <p class="publication-authors">D. Bhargavi, A. Kumar, P. A. L. Narayana, Nitish Gupta</p>
                     <h4 class="publication-title">"An analytical study of streamline flow through a porous filled duct with permeable wall"</h4>
                     <p class="publication-journal">Journal of Nanofluids, 2024; 13: 371–380</p>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://www.ingentaconnect.com/content/asp/jon/2024/00000013/00000002/art00007;jsessionid=79isrmjfpemsa.x-ic-live-02" class="publication-link" target="_blank"></a>
                 </li>
             </ul>
@@ -784,7 +809,7 @@
                     <div class="publication-details">
                         <span class="publication-detail">Hardcover ISBN 978-3-031-69133-1</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://link.springer.com/chapter/10.1007/978-3-031-69134-8_32" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -799,7 +824,7 @@
                     <div class="publication-details">
                         <span class="publication-detail">Hardcover ISBN 978-3-031-69133-1</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://link.springer.com/chapter/10.1007/978-3-031-69134-8_47" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -814,7 +839,7 @@
                     <div class="publication-details">
                         <span class="publication-detail">Hardcover ISBN 978-981-19-9905-5</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://link.springer.com/chapter/10.1007/978-981-19-9906-2_33" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -829,7 +854,7 @@
                     <div class="publication-details">
                         <span class="publication-detail">Hardcover ISBN 978-981-99-5612-8</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://link.springer.com/chapter/10.1007/978-981-99-5613-5_5" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -844,7 +869,7 @@
                     <div class="publication-details">
                         <span class="publication-status">Article in press</span>
                     </div>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="#" class="publication-link" target="_blank"></a>
                 </li>
             </ul>
@@ -862,7 +887,7 @@
                     <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
                     <h4 class="publication-title">"Impact of magnetic field on heat transfer in a parallel plate channel with a centered porous layer: Darcy-Brinkman model"</h4>
                     <p class="publication-journal">AIP Conference Proceedings, 2023; 2768, 020014</p>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://doi.org/10.1063/5.0147311" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -874,7 +899,7 @@
                     <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
                     <h4 class="publication-title">"Numerical analysis of viscous dissipation effect on developing thermal field in porous filled duct under local thermal non-equilibrium"</h4>
                     <p class="publication-journal">AIP Conference Proceedings, 2023; 2768, 020015</p>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://doi.org/10.1063/5.0147312" class="publication-link" target="_blank"></a>
                 </li>
                 
@@ -886,7 +911,7 @@
                     <p class="publication-authors">D. Bhargavi, Nitish Gupta</p>
                     <h4 class="publication-title">"A study of axial conduction in porous filled duct under local thermal non-equilibrium: Constant wall heat flux"</h4>
                     <p class="publication-journal">AIP Conference Proceedings, 2023; 2768, 020016</p>
-                    <button class="mobile-abstract-toggle">Show Abstract</button>
+                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
                     <a href="https://doi.org/10.1063/5.0147313" class="publication-link" target="_blank"></a>
                 </li>
             </ul>
@@ -937,21 +962,64 @@
             });
         });
         
-        // Mobile abstract toggle
-        const abstractToggles = document.querySelectorAll('.mobile-abstract-toggle');
-        
-        abstractToggles.forEach(toggle => {
-            toggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const publicationItem = toggle.closest('.publication-item');
-                publicationItem.classList.toggle('active');
-                
-                if (publicationItem.classList.contains('active')) {
-                    toggle.textContent = 'Hide Abstract';
-                } else {
-                    toggle.textContent = 'Show Abstract';
-                }
+        // Improved abstract toggle functionality
+          document.addEventListener('DOMContentLoaded', function() {
+            const abstractToggles = document.querySelectorAll('.mobile-abstract-toggle');
+            
+            abstractToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const publicationItem = this.closest('.publication-item');
+                    const abstract = publicationItem.querySelector('.publication-abstract');
+                    const icon = this.querySelector('i');
+                    
+                    // Close all other abstracts first
+                    document.querySelectorAll('.publication-item').forEach(item => {
+                        if (item !== publicationItem) {
+                            item.classList.remove('active');
+                            const otherAbstract = item.querySelector('.publication-abstract');
+                            const otherIcon = item.querySelector('.mobile-abstract-toggle i');
+                            if (otherAbstract) {
+                                otherAbstract.style.maxHeight = '0';
+                                setTimeout(() => {
+                                    otherAbstract.style.display = 'none';
+                                }, 300);
+                            }
+                            if (otherIcon) {
+                                otherIcon.classList.remove('fa-chevron-up');
+                                otherIcon.classList.add('fa-chevron-down');
+                            }
+                        }
+                    });
+                    
+                    // Toggle current abstract
+                    if (publicationItem.classList.contains('active')) {
+                        abstract.style.maxHeight = '0';
+                        setTimeout(() => {
+                            abstract.style.display = 'none';
+                        }, 300);
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    } else {
+                        abstract.style.display = 'block';
+                        abstract.style.maxHeight = abstract.scrollHeight + 'px';
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    }
+                    
+                    publicationItem.classList.toggle('active');
+                });
             });
+            
+            // Initialize all abstracts as hidden on mobile
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.publication-abstract').forEach(abstract => {
+                    abstract.style.display = 'none';
+                    abstract.style.maxHeight = '0';
+                });
+            }
         });
         
         // Animation for publication items
@@ -976,6 +1044,56 @@
                 !e.target.closest('.mobile-menu-btn') &&
                 navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
+            }
+            
+            // Close abstracts when clicking outside on mobile
+            if (window.innerWidth <= 768) {
+                const clickedInsideAbstract = e.target.closest('.publication-item') || 
+                                             e.target.closest('.mobile-abstract-toggle');
+                
+                if (!clickedInsideAbstract) {
+                    document.querySelectorAll('.publication-item').forEach(item => {
+                        item.classList.remove('active');
+                        const abstract = item.querySelector('.publication-abstract');
+                        const icon = item.querySelector('.mobile-abstract-toggle i');
+                        if (abstract) {
+                            abstract.style.maxHeight = '0';
+                            setTimeout(() => {
+                                abstract.style.display = 'none';
+                            }, 300);
+                        }
+                        if (icon) {
+                            icon.classList.remove('fa-chevron-up');
+                            icon.classList.add('fa-chevron-down');
+                        }
+                    });
+                }
+            }
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                // Reset all abstracts on desktop
+                document.querySelectorAll('.publication-item').forEach(item => {
+                    item.classList.remove('active');
+                    const abstract = item.querySelector('.publication-abstract');
+                    const icon = item.querySelector('.mobile-abstract-toggle i');
+                    if (abstract) {
+                        abstract.style.display = '';
+                        abstract.style.maxHeight = '';
+                    }
+                    if (icon) {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+            } else {
+                // Initialize all abstracts as hidden on mobile
+                document.querySelectorAll('.publication-abstract').forEach(abstract => {
+                    abstract.style.display = 'none';
+                    abstract.style.maxHeight = '0';
+                });
             }
         });
     </script>
