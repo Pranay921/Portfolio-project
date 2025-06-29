@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitish Gupta | Publications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --pop1: #FF9F1C;
+            --pop2: #FF6392;
+            --pop3: #7B2CBF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Navbar Styles - Same as before */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 1000;
+            transform: translateY(0);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .navbar.hidden {
+            transform: translateY(-100%);
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--pop3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: colorShift 8s infinite alternate;
+        }
+        
+        @keyframes colorShift {
+            0% { color: var(--pop3); }
+            33% { color: var(--pop1); }
+            66% { color: var(--pop2); }
+            100% { color: var(--primary); }
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-item {
+            position: relative;
+            list-style: none;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 0.8rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: var(--primary);
+            padding-left: 1.2rem;
+        }
+        
+        .dropdown-content .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content .dropdown-content {
+            left: 100%;
+            top: 0;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding-left: 1rem;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-content {
+                display: block;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .dropdown-content .dropdown-content {
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+        /* ... */
+        
+        /* Publications Page Styles */
+        .publications-page {
+            padding: 8rem 5% 4rem;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--pop3);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .publication-category {
+            margin-bottom: 4rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .category-title {
+            font-size: 2rem;
+            color: var(--pop1);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px dashed var(--secondary);
+            font-weight: 600;
+        }
+        
+        .publication-list {
+            list-style-type: none;
+        }
+        
+        .publication-item {
+            background: white;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary);
+            opacity: 0;
+            transform: translateY(20px);
+            position: relative;
+        }
+        
+        .publication-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .publication-authors {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+        
+        .publication-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+        
+        .publication-journal {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .publication-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+        
+        .publication-detail {
+            background-color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .publication-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        /* Abstract Tooltip Styles */
+        .publication-abstract {
+            position: absolute;
+            bottom: calc(100% + 10px);
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .publication-abstract::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 20px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+        }
+        
+        .publication-item:hover .publication-abstract {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        
+        .abstract-title {
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .abstract-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Make publication items clickable */
+        .publication-link {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .category-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .category-title {
+                font-size: 1.6rem;
+            }
+            
+            .publication-item {
+                padding: 1.5rem;
+            }
+            
+            .publication-title {
+                font-size: 1.2rem;
+            }
+            
+            .publication-abstract {
+                display: none; /* Hide abstract tooltips on mobile */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .category-title {
+                font-size: 1.4rem;
+            }
+            
+            .publication-item {
+                padding: 1.2rem;
+            }
+            
+            .publication-title {
+                font-size: 1.1rem;
+            }
+            
+            .publication-authors, .publication-journal {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Nitish Gupta</a>
+        <ul class="nav-links">
+            <li class="nav-item dropdown">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <div class="dropdown-content">
+                    <a href="qualification.html">Education Qualification</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="publications.html" class="nav-link">Publications</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link">Workshop/Conference</a>
+                <div class="dropdown-content">
+                    <a href="#">Workshop</a>
+                    <a href="#">Conference</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Professional Activity</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">References</a>
+            </li>
+        </ul>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    
+    <!-- Publications Page -->
+    <section class="publications-page">
+        <h2 class="section-title">Publications</h2>
+        
+        <!-- Peer-reviewed International Journals (SCI/SCIE Indexed) -->
+        <div class="publication-category">
+            <h3 class="category-title">Articles In Peer-reviewed International Journals (SCI/SCIE Indexed)</h3>
+            <ul class="publication-list">
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">This study investigates the effects of viscous dissipation on thermal field development in a saturated porous medium, focusing on effective thermal management solutions.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi, and K. Vajravelu</p>
+                    <h4 class="publication-title">"Viscous dissipation impacts on a developing thermal field in a saturated porous medium: An effective thermal management"</h4>
+                    <p class="publication-journal">Physics of Fluids, 2024; 36 (12)</p>
+                    <div class="publication-details">
+                        <span class="publication-detail">Q1</span>
+                        <span class="publication-detail">IF 4.1</span>
+                    </div>
+                    <a href="https://pubs.aip.org/aip/pof/article-abstract/36/12/123117/3326132/Viscous-dissipation-impacts-on-a-developing?redirectedFrom=PDF" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">This research explores the maximal transport characteristics of non-Newtonian fluid in an anisotropic rotating porous channel under the influence of an inclined magnetic field.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, K. Vajravelu</p>
+                    <h4 class="publication-title">"Maximal transport of non-Newtonian fluid in an anisotropic rotating porous channel with an inclined magnetic field"</h4>
+                    <p class="publication-journal">Physics of Fluids, 2024; 36 (9)</p>
+                    <div class="publication-details">
+                        <span class="publication-detail">Q1</span>
+                        <span class="publication-detail">IF 4.1</span>
+                    </div>
+                    <a href="https://pubs.aip.org/aip/pof/article-abstract/36/9/093119/3313753/Maximal-transport-of-non-Newtonian-fluid-in-an?redirectedFrom=fulltext" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Computational analysis of heat transfer in MHD couple-stress fluid within a porous-filled channel, examining various parameters affecting thermal performance.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi, O. D. Makinde</p>
+                    <h4 class="publication-title">"Heat transfer in a MHD couple-stress fluid in a channel filled with porous material: A computational analysis"</h4>
+                    <p class="publication-journal">International Communications in Heat and Mass Transfer, 2024; 155: 107586</p>
+                    <div class="publication-details">
+                        <span class="publication-detail">Q1</span>
+                        <span class="publication-detail">IF 6.4</span>
+                    </div>
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0735193324003488?dgcid=coauthor" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Study on MHD Couette flow in porous-filled ducts, analyzing thermal entrance effects and local thermal non-equilibrium conditions.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi, K. Vajravelu, and PAL Narayana</p>
+                    <h4 class="publication-title">"A study on MHD Couette flow in a duct filled with porous materials at the thermal entrance and local thermal non-equilibrium effects"</h4>
+                    <p class="publication-journal">The European Physical Journal Plus, 2024; 139: 681</p>
+                    <div class="publication-details">
+                        <span class="publication-detail">Q2</span>
+                        <span class="publication-detail">IF 2.8</span>
+                    </div>
+                    <a href="https://link.springer.com/article/10.1140/epjp/s13360-024-05515-2" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Numerical investigation of heat transfer in developing thermal fields within porous-filled ducts under local thermal non-equilibrium with constant wall heat flux conditions.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
+                    <h4 class="publication-title">"Numerical investigation of heat transfer in a developing thermal field in the porous-filled duct under local thermal non-equilibrium: constant wall heat flux"</h4>
+                    <p class="publication-journal">Special Topics and Reviews in Porous Media: International Journal, 2023; 13: 49-81</p>
+                    <div class="publication-details">
+                        <span class="publication-detail">Q3</span>
+                        <span class="publication-detail">IF 1.4</span>
+                    </div>
+                    <a href="https://doi.org/10.1615/SpecialTopicsRevPorousMedia.2023045062" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Numerical study of axial conduction effects in fluid-saturated porous-filled ducts under local thermal non-equilibrium conditions.</p>
+                    </div>
+                    <p class="publication-authors">D. Bhargavi, Nitish Gupta, O. D. Makinde</p>
+                    <h4 class="publication-title">"A numerical study of axial conduction in a fluid-saturated porous-filled duct under a local thermal non-equilibrium model"</h4>
+                    <p class="publication-journal">Special Topics and Reviews in Porous Media: International Journal, 2023; 14: 73–89</p>
+                    <div class="publication-details">
+                        <span class="publication-detail">Q3</span>
+                        <span class="publication-detail">IF 1.4</span>
+                    </div>
+                    <a href="https://doi.org/10.1615/SpecialTopicsRevPorousMedia.2023049201" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Comparative analysis of axial conduction and viscous dissipation effects in thermal entry regions under local thermal non-equilibrium conditions.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi, and K. Vajravelu</p>
+                    <h4 class="publication-title">"Comparative investigation of axial conduction and viscous dissipation in the entry area: a computational analysis within the local thermal non-equilibrium structure"</h4>
+                    <p class="publication-journal">Numerical Heat Transfer, Part A: Applications</p>
+                    <div class="publication-details">
+                        <span class="publication-status">Accepted</span>
+                        <span class="publication-detail">Q2</span>
+                        <span class="publication-detail">IF 2.8</span>
+                    </div>
+                    <a href="#" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Computational analysis of magnetic field and porous fraction interactions on developing thermal fields in parallel plate channels with central porous layers under non-linear flow conditions.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta</p>
+                    <h4 class="publication-title">"Computational Analysis of Magnetic Field and Porous Fraction Interactions on Developing Thermal Field in Parallel Plate Channels: Featuring a Central Porous Layer Under a Non-Linear Flow Framework"</h4>
+                    <p class="publication-journal">Numerical Heat Transfer, Part B: Fundamentals</p>
+                    <div class="publication-details">
+                        <span class="publication-status">Accepted</span>
+                        <span class="publication-detail">Q3</span>
+                        <span class="publication-detail">IF 1.7</span>
+                    </div>
+                    <a href="#" class="publication-link" target="_blank"></a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- ESCI/SCOPUS/Web of Science Indexed -->
+        <div class="publication-category">
+            <h3 class="category-title">Articles In Peer-reviewed International Journals (ESCI/SCOPUS/Web of Science Indexed)</h3>
+            <ul class="publication-list">
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Investigation of magnetic field effects on developing thermal fields in porous-filled ducts under local thermal non-equilibrium with nonlinear flow models.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
+                    <h4 class="publication-title">"Effect of magnetic field on the developing thermal field in a duct filled with porous media under local thermal non-equilibrium with a nonlinear flow model"</h4>
+                    <p class="publication-journal">Journal of Advance Research in Fluid Mechanics and Thermal Sciences, 2023; 103: 87-104</p>
+                    <a href="https://doi.org/10.37934/arfmts.103.1.87104" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Nonlinear transient analysis of plates with active constrained 0-3 viscoelastic composite layers using fractional order derivative models.</p>
+                    </div>
+                    <p class="publication-authors">A. Gupta, R. S. Reddy, B. M. Girish, Nitish Gupta</p>
+                    <h4 class="publication-title">"Nonlinear transient analysis of the plate with active constrained 0-3 viscoelastic composite layer using fractional order derivative model"</h4>
+                    <p class="publication-journal">NanoWorld J, 2023; 9(S1): S508-S512</p>
+                    <a href="https://doi.org/10.17756/nwj.2023-s1-096" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Analytical study of inclined magnetic field effects on Couette flow with Jeffrey fluid under local thermal non-equilibrium and viscous dissipation conditions.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
+                    <h4 class="publication-title">"An analytical study of the impact of an inclined magnetic field on Couette flow with Jeffrey fluid under local thermal non-equilibrium (LTNE) and viscous dissipation"</h4>
+                    <p class="publication-journal">Applied Mechanics and Materials (AMM); 2024: 919</p>
+                    <a href="https://doi.org/10.4028/p-2QZJ3O" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Investigation of magnetic field effects on heat transfer with viscous dissipation at conduction limits in channels with centered porous layers under constant wall temperature conditions.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
+                    <h4 class="publication-title">"Impact of magnetic field on heat transfer with viscous dissipation at the conduction limit in a channel with a centred porous layer: Constant wall temperature"</h4>
+                    <p class="publication-journal">Multidisciplinary Science Journal, 2024; 6: e2024ss0109</p>
+                    <a href="https://doi.org/10.31893/multiscience.2024ss0109" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Analytical study of streamline flow through porous-filled ducts with permeable walls, examining flow characteristics and patterns.</p>
+                    </div>
+                    <p class="publication-authors">D. Bhargavi, A. Kumar, P. A. L. Narayana, Nitish Gupta</p>
+                    <h4 class="publication-title">"An analytical study of streamline flow through a porous filled duct with permeable wall"</h4>
+                    <p class="publication-journal">Journal of Nanofluids, 2024; 13: 371–380</p>
+                    <a href="https://www.ingentaconnect.com/content/asp/jon/2024/00000013/00000002/art00007;jsessionid=79isrmjfpemsa.x-ic-live-02" class="publication-link" target="_blank"></a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Book Chapters -->
+        <div class="publication-category">
+            <h3 class="category-title">Book Chapters (SCOPUS Indexed)</h3>
+            <ul class="publication-list">
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">The current study explores the ramifications of Casson fluid flow within a duct filled with porous material, characterized by isothermal boundaries and incorporating viscous dissipation while adhering to local thermal non-equilibrium (LTNE) conditions. Our investigation delves into the quantifiable effects of various parameters, including the Hartmann number (Mh), Casson fluid parameter (β), thermal conductivity ratio (υ), Brinkman number (Brh), and Biot number (Bih), on the augmentation of heat transfer. We derive analytical solutions for the governing equations and present velocity profiles as well as temperature distribution profiles for both the solid and fluid phases. This model demonstrates that the magnetic field significantly influences the temperature field at all stages. Furthermore, for the iso-flux boundaries, our findings reveal that irrespective of the Hartman number and Casson fluid parameter, the solid phase consistently maintains a lower temperature than the fluid phase, substantiating the existence of LTNE.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
+                    <h4 class="publication-title">"Casson fluid flow in a duct with iso-thermal walls under the local thermal non-equilibrium framework: temperature distribution"</h4>
+                    <p class="publication-journal">Springer Proceedings in Physics, Springer, Singapore, 2024; pp. 452-464</p>
+                    <div class="publication-details">
+                        <span class="publication-detail">Hardcover ISBN 978-3-031-69133-1</span>
+                    </div>
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-69134-8_32" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Investigation of squeezing flow through porous media between parallel plates using homotopy perturbation method, analyzing flow characteristics and pressure distributions.</p>
+                    </div>
+                    <p class="publication-authors">D. Bhargavi, Shantanu, Nitish Gupta</p>
+                    <h4 class="publication-title">"The investigation of squeezing flow through a porous medium between parallel plates using the homotopy perturbation method"</h4>
+                    <p class="publication-journal">Springer Proceedings in Physics, Springer, Singapore, 2024; pp. 647-657</p>
+                    <div class="publication-details">
+                        <span class="publication-detail">Hardcover ISBN 978-3-031-69133-1</span>
+                    </div>
+                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-69134-8_47" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Numerical investigation of magnetic effects in channels partially filled with porous materials, examining flow patterns and thermal characteristics.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
+                    <h4 class="publication-title">"The influence of magnetic effect in a channel partially filled with porous material: a numerical investigation"</h4>
+                    <p class="publication-journal">Advances in Mechanical Engineering and Material Science, Springer, Singapore, 2023; pp. 415-426</p>
+                    <div class="publication-details">
+                        <span class="publication-detail">Hardcover ISBN 978-981-19-9905-5</span>
+                    </div>
+                    <a href="https://link.springer.com/chapter/10.1007/978-981-19-9906-2_33" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Study of magnetic field effects on Couette flow in porous-filled ducts under local thermal non-equilibrium conditions with viscous dissipation considerations.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
+                    <h4 class="publication-title">"Effect of magnetic field on Couette flow in a fluid-saturated porous-filled duct under the local thermal non-equilibrium with viscous dissipation"</h4>
+                    <p class="publication-journal">Advances in Mechanical Engineering and Material Science, Springer, Singapore, 2023; pp. 57-68</p>
+                    <div class="publication-details">
+                        <span class="publication-detail">Hardcover ISBN 978-981-99-5612-8</span>
+                    </div>
+                    <a href="https://link.springer.com/chapter/10.1007/978-981-99-5613-5_5" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Analysis of magnetic field impacts at entrance regions of porous-filled ducts under LTNE models with viscous dissipation and axial conduction effects.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta</p>
+                    <h4 class="publication-title">"Impact of magnetic field at the entrance region of porous filled duct under the LTNE model with viscous dissipation and axial conduction"</h4>
+                    <p class="publication-journal">Springer Proceedings in Mathematics and Statistics, Springer, Singapore</p>
+                    <div class="publication-details">
+                        <span class="publication-status">Article in press</span>
+                    </div>
+                    <a href="#" class="publication-link" target="_blank"></a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Conference Proceedings -->
+        <div class="publication-category">
+            <h3 class="category-title">Articles In Conference Proceedings</h3>
+            <ul class="publication-list">
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Investigation of magnetic field impacts on heat transfer in parallel plate channels with centered porous layers using Darcy-Brinkman models.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
+                    <h4 class="publication-title">"Impact of magnetic field on heat transfer in a parallel plate channel with a centered porous layer: Darcy-Brinkman model"</h4>
+                    <p class="publication-journal">AIP Conference Proceedings, 2023; 2768, 020014</p> complete the code                    <a href="https://doi.org/10.1063/5.0147311" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Numerical analysis of viscous dissipation effects on developing thermal fields in porous-filled ducts under local thermal non-equilibrium conditions.</p>
+                    </div>
+                    <p class="publication-authors">Nitish Gupta, D. Bhargavi</p>
+                    <h4 class="publication-title">"Numerical analysis of viscous dissipation effect on developing thermal field in porous filled duct under local thermal non-equilibrium"</h4>
+                    <p class="publication-journal">AIP Conference Proceedings, 2023; 2768, 020015</p>
+                    <a href="https://doi.org/10.1063/5.0147312" class="publication-link" target="_blank"></a>
+                </li>
+                
+                <!-- <li class="publication-item">
+                    <div class="publication-abstract">
+                        <h5 class="abstract-title">Abstract</h5>
+                        <p class="abstract-text">Study of axial conduction effects in porous-filled ducts under local thermal non-equilibrium with constant wall heat flux boundary conditions.</p>
+                    </div>
+                    <p class="publication-authors">D. Bhargavi, Nitish Gupta</p>
+                    <h4 class="publication-title">"A study of axial conduction in porous filled duct under local thermal non-equilibrium: Constant wall heat flux"</h4>
+                    <p class="publication-journal">AIP Conference Proceedings, 2023; 2768, 020016</p>
+                    <a href="https://doi.org/10.1063/5.0147313" class="publication-link" target="_blank"></a>
+                </li> -->
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript for navbar hide/show on scroll
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.classList.remove('hidden');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !navbar.classList.contains('hidden')) {
+                navbar.classList.add('hidden');
+            } else if (currentScroll < lastScroll && navbar.classList.contains('hidden')) {
+                navbar.classList.remove('hidden');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Dropdown functionality for mobile
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
+            
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Animation for publication items
+        const publicationItems = document.querySelectorAll('.publication-item');
+        
+        const animatePublications = () => {
+            publicationItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, 100 * index);
+            });
+        };
+        
+        // Intersection Observer for publication items
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animatePublications();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        observer.observe(document.querySelector('.publications-page'));
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && 
+                !e.target.closest('.nav-links') && 
+                !e.target.closest('.mobile-menu-btn') &&
+                navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitish Gupta | Qualifications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --pop1: #FF9F1C;
+            --pop2: #FF6392;
+            --pop3: #7B2CBF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Navbar Styles - Same as before */
+         .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 1000;
+            transform: translateY(0);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .navbar.hidden {
+            transform: translateY(-100%);
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--pop3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: colorShift 8s infinite alternate;
+        }
+        
+        @keyframes colorShift {
+            0% { color: var(--pop3); }
+            33% { color: var(--pop1); }
+            66% { color: var(--pop2); }
+            100% { color: var(--primary); }
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-item {
+            position: relative;
+            list-style: none;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 0.8rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: var(--primary);
+            padding-left: 1.2rem;
+        }
+        
+        .dropdown-content .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content .dropdown-content {
+            left: 100%;
+            top: 0;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                width: 100%;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                display: none;
+                padding-left: 1rem;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-content {
+                display: block;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .dropdown-content .dropdown-content {
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+        }
+        /* ... */
+        
+        /* Education Page Styles - UPDATED */
+        .education-page {
+            padding: 8rem 5% 4rem;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--pop3);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .education-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .education-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            transform: translateY(30px);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .education-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .education-card:nth-child(1) { transition-delay: 0.1s; }
+        .education-card:nth-child(2) { transition-delay: 0.2s; }
+        .education-card:nth-child(3) { transition-delay: 0.3s; }
+        .education-card:nth-child(4) { transition-delay: 0.4s; }
+        .education-card:nth-child(5) { transition-delay: 0.5s; }
+        
+        .education-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .degree {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--pop3);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .degree::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .institution {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .details {
+            margin-top: 1.5rem;
+            color: #555;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .specialization {
+            display: inline-block;
+            background-color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 1rem;
+            margin: 0.8rem 0;
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .advisor {
+            font-style: italic;
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+        
+        .thesis {
+            margin: 1rem 0;
+            padding-left: 1.2rem;
+            border-left: 4px solid var(--secondary);
+            font-size: 1.05rem;
+        }
+        
+        .achievements {
+            margin-top: 4rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .achievements-title {
+            font-size: 2.3rem;
+            color: var(--pop1);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .achievement-list {
+            list-style-type: none;
+            width: 100%;
+        }
+        
+        .achievement-item {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(-20px);
+            width: 100%;
+        }
+        
+        .achievement-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .achievement-item:nth-child(1) { transition-delay: 0.6s; }
+        .achievement-item:nth-child(2) { transition-delay: 0.7s; }
+        .achievement-item:nth-child(3) { transition-delay: 0.8s; }
+        .achievement-item:nth-child(4) { transition-delay: 0.9s; }
+        
+        .achievement-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .education-card {
+                padding: 2rem;
+            }
+            
+            .degree {
+                font-size: 1.5rem;
+            }
+            
+            .institution {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .education-card {
+                padding: 1.8rem;
+            }
+            
+            .degree {
+                font-size: 1.4rem;
+            }
+            
+            .institution {
+                font-size: 1.1rem;
+            }
+            
+            .achievements-title {
+                font-size: 2rem;
+            }
+            
+            .achievement-item {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .education-card {
+                padding: 1.5rem;
+            }
+            
+            .degree {
+                font-size: 1.3rem;
+            }
+            
+            .institution {
+                font-size: 1rem;
+            }
+            
+            .details, .thesis {
+                font-size: 0.95rem;
+            }
+            
+            .achievements-title {
+                font-size: 1.7rem;
+            }
+            
+            .achievement-item {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar - Same as before -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Nitish Gupta</a>
+        <ul class="nav-links">
+            <li class="nav-item dropdown">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <div class="dropdown-content">
+                    <a href="qualification.html">Education Qualification</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="publications.html" class="nav-link">Publications</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link">Workshop/Conference</a>
+                <div class="dropdown-content">
+                    <a href="#">Workshop</a>
+                    <a href="#">Conference</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Professional Activity</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">References</a>
+            </li>
+        </ul>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    
+    <!-- Education Page -->
+    <section class="education-page">
+        <h2 class="section-title">Educational Qualification</h2>
+        
+        <div class="education-container">
+            <div class="education-card">
+                <h3 class="degree">Doctor of Philosophy (Ph.D.) in Mathematics</h3>
+                <p class="institution">National Institute of Technology (NIT) Warangal, Telangana, India.</p>
+                <span class="specialization">Specialization: Fluid mechanics, Numerical heat transfer</span>
+                <p class="advisor">Advisor: Prof. D. Bhargavi</p>
+                <p class="thesis">Thesis: Enhancing Heat Transfer in the Developing Thermal Field in a Fluid Saturated Porous Filled Duct with Local Thermal Non-equilibrium</p>
+            </div>
+            
+            <div class="education-card">
+                <h3 class="degree">Master of Science (M.Sc) in Mathematics</h3>
+                <p class="institution">National Institute of Technology (NIT) Warangal, Telangana, India.</p>
+                <span class="specialization">Specialization: Applied Mathematics</span>
+                <p class="advisor">Advisor: Prof. D. Bhargavi</p>
+                <p class="thesis">Thesis: Study of Fluid Flow in Wavy Wall Channel</p>
+            </div>
+            
+            <div class="education-card">
+                <h3 class="degree">Bachelor of Science (B.Sc.)</h3>
+                <p class="institution">Chhatrapati Shahu Ji Maharaj University, Kanpur, Uttar Pradesh</p>
+            </div>
+            
+            <div class="education-card">
+                <h3 class="degree">Intermediate (12th Standard)</h3>
+                <p class="institution">Board of High School and Intermediate Education, Uttar Pradesh</p>
+            </div>
+            
+            <div class="education-card">
+                <h3 class="degree">High School (10th Standard)</h3>
+                <p class="institution">Board of High School and Intermediate Education, Uttar Pradesh</p>
+            </div>
+        </div>
+        
+        <div class="achievements">
+            <h3 class="achievements-title">Achievements</h3>
+            <ul class="achievement-list">
+                <li class="achievement-item">
+                    Received the Best Paper Award in the International Conference on Advancements in Materials, Manufacturing, and Automation, for the paper "An Analytical Study of the Impact of an Inclined Magnetic Field on Couette Flow with Jeffrey Fluid under Local Thermal Non-Equilibrium (LTNE) and Viscous Dissipation", (during April 7-9, 2023).
+                </li>
+                <li class="achievement-item">
+                    Received the Ministry of Education (MoE) Scholarship for pursuing doctoral research at NIT Warangal from 2019-2024.
+                </li>
+                <li class="achievement-item">
+                    GATE (Graduate Aptitude Test in Engineering) qualified.
+                </li>
+                <li class="achievement-item">
+                    IIT JAM (Joint Admission Test for Master's) qualified.
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <script>
+        // Navbar hide/show on scroll
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.classList.remove('hidden');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !navbar.classList.contains('hidden')) {
+                navbar.classList.add('hidden');
+            } else if (currentScroll < lastScroll && navbar.classList.contains('hidden')) {
+                navbar.classList.remove('hidden');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Mobile dropdown toggle
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('.nav-link');
+            
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Animation on scroll for education cards
+        const educationCards = document.querySelectorAll('.education-card');
+        const achievementItems = document.querySelectorAll('.achievement-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        educationCards.forEach(card => {
+            observer.observe(card);
+        });
+        
+        achievementItems.forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitish Gupta | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --pop1: #FF9F1C;
+            --pop2: #FF6392;
+            --pop3: #7B2CBF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 1000;
+            transform: translateY(0);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .navbar.hidden {
+            transform: translateY(-100%);
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--pop3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            animation: colorShift 8s infinite alternate;
+        }
+        
+        @keyframes colorShift {
+            0% { color: var(--pop3); }
+            33% { color: var(--pop1); }
+            66% { color: var(--pop2); }
+            100% { color: var(--primary); }
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-item {
+            position: relative;
+            list-style: none;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            min-width: 250px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 0.8rem 1rem;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: var(--primary);
+            padding-left: 1.2rem;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Introduction Section */
+        .intro-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10rem 5% 5rem;
+        }
+        
+        .intro-section {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .profile-image-container {
+            flex: 0 0 300px;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .intro-content {
+            flex: 1;
+        }
+        
+        .intro-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--pop3);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .intro-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .intro-subtitle {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .intro-text {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .intro-text p {
+            margin-bottom: 1rem;
+        }
+        
+        .qualification-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+        
+        .qualification-btn:hover {
+            background-color: var(--pop2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* Research Interests Section */
+        .research-section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, #f5f7fa 0%, #e8ebf0 100%);
+            border-radius: 20px;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--pop3);
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .research-card {
+            background: white;
+            padding: 1.8rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .research-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .research-title i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .research-content {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .applications {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--secondary);
+            font-style: italic;
+            color: #666;
+        }
+        
+        /* CV & Social Links Section */
+        .links-section {
+            padding: 3rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .cv-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--pop3);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(123, 44, 191, 0.3);
+        }
+        
+        .cv-button:hover {
+            background-color: var(--pop2);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 99, 146, 0.4);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: var(--primary);
+        }
+        
+        .linkedin { color: #0A66C2; }
+        .instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); color: white; }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .intro-section {
+                gap: 3rem;
+            }
+            
+            .profile-image-container {
+                flex: 0 0 250px;
+            }
+            
+            .profile-image {
+                height: 250px;
+            }
+            
+            .intro-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .intro-container {
+                padding: 8rem 5% 3rem;
+            }
+            
+            .intro-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-image-container {
+                flex: 0 0 auto;
+                margin-bottom: 2rem;
+            }
+            
+            .profile-image {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .intro-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80%;
+            }
+            
+            .section-heading {
+                font-size: 1.8rem;
+            }
+            
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .research-title {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .intro-title {
+                font-size: 1.8rem;
+            }
+            
+            .intro-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .intro-text {
+                font-size: 1rem;
+            }
+            
+            .profile-image {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Nitish Gupta</div>
+        <ul class="nav-links">
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <div class="dropdown-content">
+                    <a href="qualification.html">Education Qualification</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="publications.html" class="nav-link">Publications</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link">Workshop/Conference</a>
+                <div class="dropdown-content">
+                    <a href="#">Workshop</a>
+                    <a href="#">Conference</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Professional Activity</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">References</a>
+            </li>
+        </ul>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    
+    <!-- Introduction Section -->
+    <div class="intro-container">
+        <section class="intro-section">
+            <div class="profile-image-container">
+                <img src="markup_Nitish.jpg" alt="Dr. Nitish Gupta" class="profile-image">
+            </div>
+            
+            <div class="intro-content">
+                <h1 class="intro-title">Dr. Nitish Gupta</h1>
+                <h2 class="intro-subtitle">Ph.D., M.Sc., Department of Mathematics</h2>
+                <h3 class="intro-subtitle">National Institute of Technology Warangal (NIT Warangal), India</h3>
+                
+                <div class="intro-text">
+                    <p>I have completed my Ph.D. in the Department of Mathematics at the National Institute of Technology Warangal (NIT Warangal), located in Telangana, India, under the supervision of Prof. D. Bhargavi. My doctoral research focuses on enhancing heat transfer in porous media under the local thermal non-equilibrium (LTNE) model.</p>
+                    
+                    <p>I am currently working as a Postdoctoral Fellow in the School of Basic Sciences at the Indian Institute of Technology Bhubaneswar (IITBBS), India. Prior to this, I served as an Assistant Professor in the School of Chemical Engineering and Physical Sciences at Lovely Professional University (LPU), Punjab (NIRF Rank 27). During my tenure at LPU, I was actively involved in teaching Probability and Statistics, academic mentoring, and curriculum development.</p>
+                </div>
+                
+                <a href="qualification.html" class="qualification-btn">View Qualifications</a>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Research Interests Section -->
+    <section class="research-section">
+        <h2 class="section-heading">Research Interests</h2>
+        
+        <div class="research-grid">
+            <div class="research-card">
+                <h3 class="research-title"><i class="fas fa-water"></i>Current Research Focus</h3>
+                <div class="research-content">
+                    <p>Flow Through Porous Media in Geological Materials</p>
+                    <div class="applications">
+                        <p>Possible applications:</p>
+                        <p>• Groundwater management</p>
+                        <p>• Oil and gas reservoir engineering</p>
+                        <p>• Carbon sequestration</p>
+                        <p>• Geothermal energy</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="research-card">
+                <h3 class="research-title"><i class="fas fa-flask"></i>Other Research Interests</h3>
+                <div class="research-content">
+                    <p>• Porous microchannel</p>
+                    <p>• Geothermal convection</p>
+                    <p>• Bioconvection</p>
+                    <p>• Stability analysis</p>
+                    <p>• Neural Networks</p>
+                    <p>• Numerical methods</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CV & Social Links Section -->
+    <section class="links-section">
+        <a href="https://drive.google.com/file/d/1dLBvx9DA8MxU76YIRcEfxu8RMClmIVPn/view" class="cv-button">Download Curriculum Vitae</a>
+        
+        <div class="social-links">
+            <a href="#" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </section>
+    
+    <script>
+        // Navbar hide/show on scroll
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.classList.remove('hidden');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !navbar.classList.contains('hidden')) {
+                navbar.classList.add('hidden');
+            } else if (currentScroll < lastScroll && navbar.classList.contains('hidden')) {
+                navbar.classList.remove('hidden');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Animation for research cards
+        const researchCards = document.querySelectorAll('.research-card');
+        
+        const researchObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        researchCards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            researchObserver.observe(card);
+        });
+    </script>
+</body>
+</html>
