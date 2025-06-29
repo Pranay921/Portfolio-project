@@ -414,25 +414,33 @@
             
              .publication-item.active .publication-abstract {
                 display: block;
-                max-height: 800px; /* Increased from 500px to 800px */
-                padding: 1.2rem; /* Increased padding */
+                max-height: none; /* Changed from fixed height to auto */
+                height: auto; /* Allow content to determine height */
+                padding: 1.5rem;
                 background: #f9f9f9;
                 border-radius: 8px;
                 margin-top: 1rem;
-                margin-bottom: 1.5rem; /* Increased margin */
-                box-shadow: 0 3px 8px rgba(0,0,0,0.1); /* Stronger shadow */
+                margin-bottom: 1.5rem;
+                box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+                overflow: visible; /* Ensure content isn't clipped */
             }
             
              .abstract-text {
-                font-size: 0.80rem; /* Slightly larger font */
-                line-height: 1.6; /* Better line spacing */
-                padding: 0.8rem 0; /* More padding */
-                margin-bottom: 0.5rem;
+                font-size: 0.95rem;
+                line-height: 1.6;
+                padding: 0.5rem 0;
+                margin-bottom: 0;
+                white-space: normal; /* Ensure proper text wrapping */
+                word-break: break-word; /* Prevent long words from overflowing */
             }
 
             /* Remove hover effect on mobile */
             .publication-item:hover .publication-abstract {
                 display: none;
+            }
+             .publication-item {
+                overflow: visible; /* Prevent clipping of abstract */
+                padding-bottom: 1rem; /* Add space for abstract */
             }
         }
         
@@ -919,183 +927,208 @@
     </section>
 
     <script>
-        // Navbar hide/show on scroll
-        let lastScroll = 0;
-        const navbar = document.querySelector('.navbar');
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
+      // Navbar hide/show on scroll
+let lastScroll = 0;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll <= 0) {
+        navbar.classList.remove('hidden');
+        return;
+    }
+    
+    if (currentScroll > lastScroll && !navbar.classList.contains('hidden')) {
+        navbar.classList.add('hidden');
+    } else if (currentScroll < lastScroll && navbar.classList.contains('hidden')) {
+        navbar.classList.remove('hidden');
+    }
+    
+    lastScroll = currentScroll;
+});
+
+// Mobile menu toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Mobile dropdown toggle
+const dropdowns = document.querySelectorAll('.dropdown');
+
+dropdowns.forEach(dropdown => {
+    const link = dropdown.querySelector('.nav-link');
+    
+    link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        }
+    });
+});
+
+// Improved abstract toggle functionality
+function setupAbstractToggles() {
+    const abstractToggles = document.querySelectorAll('.mobile-abstract-toggle');
+    
+    abstractToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             
-            if (currentScroll <= 0) {
-                navbar.classList.remove('hidden');
-                return;
-            }
+            const publicationItem = this.closest('.publication-item');
+            const abstract = publicationItem.querySelector('.publication-abstract');
+            const icon = this.querySelector('i');
             
-            if (currentScroll > lastScroll && !navbar.classList.contains('hidden')) {
-                navbar.classList.add('hidden');
-            } else if (currentScroll < lastScroll && navbar.classList.contains('hidden')) {
-                navbar.classList.remove('hidden');
-            }
-            
-            lastScroll = currentScroll;
-        });
-        
-        // Mobile menu toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Mobile dropdown toggle
-        const dropdowns = document.querySelectorAll('.dropdown');
-        
-        dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('.nav-link');
-            
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                }
-            });
-        });
-        
-        // Improved abstract toggle functionality
-          document.addEventListener('DOMContentLoaded', function() {
-            const abstractToggles = document.querySelectorAll('.mobile-abstract-toggle');
-            
-            abstractToggles.forEach(toggle => {
-                toggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    const publicationItem = this.closest('.publication-item');
-                    const abstract = publicationItem.querySelector('.publication-abstract');
-                    const icon = this.querySelector('i');
-                    
-                    // Close all other abstracts first
-                    document.querySelectorAll('.publication-item').forEach(item => {
-                        if (item !== publicationItem) {
-                            item.classList.remove('active');
-                            const otherAbstract = item.querySelector('.publication-abstract');
-                            const otherIcon = item.querySelector('.mobile-abstract-toggle i');
-                            if (otherAbstract) {
-                                otherAbstract.style.maxHeight = '0';
-                                setTimeout(() => {
-                                    otherAbstract.style.display = 'none';
-                                }, 300);
-                            }
-                            if (otherIcon) {
-                                otherIcon.classList.remove('fa-chevron-up');
-                                otherIcon.classList.add('fa-chevron-down');
-                            }
-                        }
-                    });
-                    
-                    // Toggle current abstract
-                    if (publicationItem.classList.contains('active')) {
-                        abstract.style.maxHeight = '0';
+            // Close all other abstracts first
+            document.querySelectorAll('.publication-item').forEach(item => {
+                if (item !== publicationItem && item.classList.contains('active')) {
+                    const otherAbstract = item.querySelector('.publication-abstract');
+                    const otherIcon = item.querySelector('.mobile-abstract-toggle i');
+                    if (otherAbstract) {
+                        otherAbstract.style.maxHeight = '0';
                         setTimeout(() => {
-                            abstract.style.display = 'none';
-                        }, 300);
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
-                    } else {
-                        abstract.style.display = 'block';
-                        abstract.style.maxHeight = abstract.scrollHeight + 'px';
-                        icon.classList.remove('fa-chevron-down');
-                        icon.classList.add('fa-chevron-up');
+                            otherAbstract.style.display = 'none';
+                        }, 400);
                     }
-                    
-                    publicationItem.classList.toggle('active');
-                });
-            });
-            
-            // Initialize all abstracts as hidden on mobile
-            if (window.innerWidth <= 768) {
-                document.querySelectorAll('.publication-abstract').forEach(abstract => {
-                    abstract.style.display = 'none';
-                    abstract.style.maxHeight = '0';
-                });
-            }
-        });
-        
-        // Animation for publication items
-        const publicationItems = document.querySelectorAll('.publication-item');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        publicationItems.forEach(item => {
-            observer.observe(item);
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768 && 
-                !e.target.closest('.nav-links') && 
-                !e.target.closest('.mobile-menu-btn') &&
-                navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-            }
-            
-            // Close abstracts when clicking outside on mobile
-            if (window.innerWidth <= 768) {
-                const clickedInsideAbstract = e.target.closest('.publication-item') || 
-                                             e.target.closest('.mobile-abstract-toggle');
-                
-                if (!clickedInsideAbstract) {
-                    document.querySelectorAll('.publication-item').forEach(item => {
-                        item.classList.remove('active');
-                        const abstract = item.querySelector('.publication-abstract');
-                        const icon = item.querySelector('.mobile-abstract-toggle i');
-                        if (abstract) {
-                            abstract.style.maxHeight = '0';
-                            setTimeout(() => {
-                                abstract.style.display = 'none';
-                            }, 300);
-                        }
-                        if (icon) {
-                            icon.classList.remove('fa-chevron-up');
-                            icon.classList.add('fa-chevron-down');
-                        }
-                    });
-                }
-            }
-        });
-        
-        // Handle window resize
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                // Reset all abstracts on desktop
-                document.querySelectorAll('.publication-item').forEach(item => {
+                    if (otherIcon) {
+                        otherIcon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                    }
                     item.classList.remove('active');
-                    const abstract = item.querySelector('.publication-abstract');
-                    const icon = item.querySelector('.mobile-abstract-toggle i');
-                    if (abstract) {
-                        abstract.style.display = '';
-                        abstract.style.maxHeight = '';
-                    }
-                    if (icon) {
-                        icon.classList.remove('fa-chevron-up');
-                        icon.classList.add('fa-chevron-down');
-                    }
-                });
-            } else {
-                // Initialize all abstracts as hidden on mobile
-                document.querySelectorAll('.publication-abstract').forEach(abstract => {
+                }
+            });
+            
+            // Toggle current abstract
+            if (publicationItem.classList.contains('active')) {
+                abstract.style.maxHeight = '0';
+                setTimeout(() => {
                     abstract.style.display = 'none';
-                    abstract.style.maxHeight = '0';
-                });
+                }, 400);
+                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            } else {
+                abstract.style.display = 'block';
+                // Calculate exact height needed
+                const abstractHeight = abstract.scrollHeight + 20; // Add buffer
+                abstract.style.maxHeight = `${abstractHeight}px`;
+                icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                
+                // Smooth scroll to show the full abstract
+                setTimeout(() => {
+                    const itemRect = publicationItem.getBoundingClientRect();
+                    const abstractRect = abstract.getBoundingClientRect();
+                    const viewportHeight = window.innerHeight;
+                    
+                    if (abstractRect.bottom > viewportHeight) {
+                        window.scrollBy({
+                            top: abstractRect.bottom - viewportHeight + 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                }, 100);
+            }
+            
+            publicationItem.classList.toggle('active');
+        });
+    });
+}
+
+// Initialize all abstracts as hidden on mobile
+function initMobileAbstracts() {
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.publication-abstract').forEach(abstract => {
+            abstract.style.display = 'none';
+            abstract.style.maxHeight = '0';
+        });
+    }
+}
+
+// Handle window resize to maintain proper abstract display
+function handleResize() {
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.publication-item.active .publication-abstract').forEach(abstract => {
+            if (abstract.style.display === 'block') {
+                const abstractHeight = abstract.scrollHeight + 20;
+                abstract.style.maxHeight = `${abstractHeight}px`;
             }
         });
+    } else {
+        // Reset for desktop view
+        document.querySelectorAll('.publication-item').forEach(item => {
+            item.classList.remove('active');
+            const abstract = item.querySelector('.publication-abstract');
+            const icon = item.querySelector('.mobile-abstract-toggle i');
+            if (abstract) {
+                abstract.style.display = '';
+                abstract.style.maxHeight = '';
+            }
+            if (icon) {
+                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            }
+        });
+    }
+}
+
+// Animation for publication items
+function setupPublicationAnimations() {
+    const publicationItems = document.querySelectorAll('.publication-item');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    publicationItems.forEach(item => {
+        observer.observe(item);
+    });
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+        // Close menu if clicking outside
+        if (!e.target.closest('.nav-links') && 
+            !e.target.closest('.mobile-menu-btn') &&
+            navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+        }
+        
+        // Close abstracts when clicking outside
+        const clickedInsideAbstract = e.target.closest('.publication-item') || 
+                                     e.target.closest('.mobile-abstract-toggle');
+        
+        if (!clickedInsideAbstract) {
+            document.querySelectorAll('.publication-item.active').forEach(item => {
+                const abstract = item.querySelector('.publication-abstract');
+                const icon = item.querySelector('.mobile-abstract-toggle i');
+                if (abstract) {
+                    abstract.style.maxHeight = '0';
+                    setTimeout(() => {
+                        abstract.style.display = 'none';
+                    }, 400);
+                }
+                if (icon) {
+                    icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                }
+                item.classList.remove('active');
+            });
+        }
+    }
+});
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    setupAbstractToggles();
+    initMobileAbstracts();
+    setupPublicationAnimations();
+});
+
+// Handle window resize events
+window.addEventListener('resize', handleResize);
     </script>
 </body>
 </html>
