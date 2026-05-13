@@ -1,266 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nitish Gupta | Publications</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <style>
-        :root {
-            --primary: #ff6b6b;
-            --secondary: #4ecdc4;
-            --accent: #ffe66d;
-            --dark: #292f36;
-            --light: #f7fff7;
-            --pop1: #ff9f1c;
-            --pop2: #ff6392;
-            --pop3: #7b2cbf;
+      :root {
+        --primary: #ff6b6b;
+        --secondary: #4ecdc4;
+        --accent: #ffe66d;
+        --dark: #292f36;
+        --light: #f7fff7;
+        --pop1: #ff9f1c;
+        --pop2: #ff6392;
+        --pop3: #7b2cbf;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--light);
+        color: var(--dark);
+        overflow-x: hidden;
+      }
+
+      /* Navbar Styles */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 1000;
+        transition: transform 0.3s ease;
+      }
+
+      .navbar.hidden {
+        transform: translateY(-100%);
+      }
+
+      .logo {
+        font-family: "Dancing Script", cursive;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--pop3);
+        text-decoration: none;
+        animation: colorShift 8s infinite alternate;
+      }
+
+      @keyframes colorShift {
+        0% { color: var(--pop3); }
+        33% { color: var(--pop1); }
+        66% { color: var(--pop2); }
+        100% { color: var(--primary); }
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        list-style: none;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+      }
+
+      .nav-link:hover {
+        color: var(--primary);
+      }
+
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        z-index: 1;
+        padding: 0.5rem 0;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropdown-content a {
+        color: var(--dark);
+        padding: 0.8rem 1rem;
+        text-decoration: none;
+        display: block;
+        transition: all 0.3s ease;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+        color: var(--primary);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--dark);
+        cursor: pointer;
+      }
+
+      /* Publications Page Styles */
+      .publications-page {
+        padding: 7rem 5% 4rem;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-align: center;
+        color: var(--pop3);
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 2px;
+      }
+
+      .publication-category {
+        margin-bottom: 4rem;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .category-title {
+        font-size: 1.6rem;
+        color: var(--pop1);
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px dashed var(--secondary);
+        font-weight: 600;
+      }
+
+      .publication-list {
+        list-style: none;
+      }
+
+      .publication-item {
+        background: white;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border-left: 5px solid var(--primary);
+        opacity: 0;
+        transform: translateY(20px);
+        position: relative;
+      }
+
+      .publication-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .publication-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .publication-authors {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+        font-style: italic;
+      }
+
+      .publication-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
+      }
+
+      .publication-journal {
+        font-size: 1rem;
+        color: var(--pop3);
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      .publication-details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+
+      .publication-detail {
+        background-color: var(--accent);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .publication-status {
+        background-color: var(--secondary);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      /* Abstract Tooltip (Desktop) */
+      .publication-abstract {
+        position: absolute;
+        bottom: 110%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        z-index: 100;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+
+      .publication-item:hover .publication-abstract {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .abstract-title {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--primary);
+      }
+
+      .abstract-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #444;
+      }
+
+      /* Mobile Overrides */
+      @media (max-width: 768px) {
+        .navbar { padding: 1rem 5%; }
+        .nav-links {
+          position: fixed;
+          top: 70px;
+          left: -100%;
+          width: 80%;
+          height: calc(100vh - 70px);
+          background: white;
+          flex-direction: column;
+          padding: 2rem;
+          transition: 0.3s;
+          box-shadow: 5px 0 15px rgba(0,0,0,0.1);
         }
+        .nav-links.active { left: 0; }
+        .mobile-menu-btn { display: block; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-
-        body {
-            font-family: "Poppins", sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            overflow-x: hidden;
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background-color: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
-            z-index: 1000; transition: transform 0.3s ease;
-        }
-
-        .navbar.hidden { transform: translateY(-100%); }
-
-        .logo {
-            font-family: "Dancing Script", cursive; font-size: 1.8rem; font-weight: 700;
-            color: var(--pop3); animation: colorShift 8s infinite alternate; text-decoration: none;
-        }
-
-        @keyframes colorShift {
-            0% { color: var(--pop3); } 33% { color: var(--pop1); }
-            66% { color: var(--pop2); } 100% { color: var(--primary); }
-        }
-
-        .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
-        .nav-link {
-            text-decoration: none; color: var(--dark); font-weight: 500;
-            transition: all 0.3s ease; display: flex; align-items: center; gap: 0.3rem;
-        }
-        .nav-link:hover { color: var(--primary); }
-
-        .dropdown { position: relative; }
-        .dropdown-content {
-            display: none; position: absolute; background-color: white; min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); border-radius: 10px; padding: 0.5rem 0;
-        }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content a {
-            color: var(--dark); padding: 0.8rem 1rem; text-decoration: none; display: block;
-        }
-        .dropdown-content a:hover { background-color: #f1f1f1; color: var(--primary); }
-
-        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
-
-        /* Publications Styles */
-        .publications-page { padding: 7rem 5% 4rem; min-height: 100vh; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); }
-        .section-title { font-family: "Playfair Display", serif; font-size: 2.5rem; text-align: center; color: var(--pop3); margin-bottom: 3rem; position: relative; }
-        .section-title::after { content: ""; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 2px; }
-
-        .publication-category { max-width: 1100px; margin: 0 auto 4rem; }
-        .category-title { font-size: 1.5rem; color: var(--pop1); margin-bottom: 1.5rem; border-bottom: 2px dashed var(--secondary); padding-bottom: 0.5rem; }
-
-        .publication-list { list-style: none; }
-        .publication-item {
-            background: white; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 5px solid var(--primary);
-            position: relative; transition: transform 0.3s ease; opacity: 0; transform: translateY(20px);
-        }
-        .publication-item.visible { opacity: 1; transform: translateY(0); }
-
-        .publication-authors { font-style: italic; color: #555; margin-bottom: 0.5rem; }
-        .publication-title { font-size: 1.2rem; font-weight: 600; color: var(--dark); margin-bottom: 0.8rem; }
-        .publication-journal { font-weight: 500; color: var(--pop3); }
-
-        .publication-details { display: flex; gap: 0.8rem; margin-top: 1rem; flex-wrap: wrap; }
-        .publication-detail { background: var(--accent); padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
-        .publication-status { background: var(--secondary); color: white; padding: 0.2rem 0.8rem; border-radius: 20px; font-size: 0.8rem; }
-
-        /* Abstract Desktop Hover */
         .publication-abstract {
-            position: absolute; bottom: 110%; left: 0; width: 100%; background: white;
-            padding: 1.5rem; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            z-index: 100; opacity: 0; visibility: hidden; transition: 0.3s ease;
+          position: static;
+          display: none;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          box-shadow: none;
+          padding: 1rem 0;
+          background: #f9f9f9;
+          border-top: 1px solid #eee;
+          margin-top: 1rem;
         }
-        .publication-item:hover .publication-abstract { opacity: 1; visibility: visible; }
-        .abstract-title { color: var(--primary); font-weight: 700; margin-bottom: 0.5rem; }
 
-        .publication-link { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-        .mobile-abstract-toggle { display: none; position: relative; z-index: 10; background: var(--primary); color: white; border: none; padding: 0.4rem 1rem; border-radius: 20px; cursor: pointer; margin-top: 1rem; }
-
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: white; flex-direction: column; padding: 2rem; transition: 0.3s; }
-            .nav-links.active { left: 0; }
-            .mobile-menu-btn { display: block; }
-            .publication-abstract { position: static; display: none; opacity: 1; visibility: visible; box-shadow: none; padding: 1rem 0; }
-            .publication-item.active .publication-abstract { display: block; }
-            .mobile-abstract-toggle { display: inline-block; }
-            .publication-item:hover .publication-abstract { display: none; }
-            .publication-item.active:hover .publication-abstract { display: block; }
+        .publication-item.active .publication-abstract {
+          display: block;
         }
+
+        .mobile-abstract-toggle {
+          display: inline-flex;
+          align-items: center;
+          background: var(--primary);
+          color: white;
+          border: none;
+          padding: 0.4rem 1rem;
+          border-radius: 20px;
+          margin-top: 1rem;
+          font-size: 0.85rem;
+          cursor: pointer;
+          position: relative;
+          z-index: 20;
+        }
+
+        .publication-item:hover .publication-abstract {
+          display: none;
+        }
+        .publication-item.active:hover .publication-abstract {
+            display: block;
+        }
+      }
+
+      .publication-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
+    <!-- Navbar -->
     <nav class="navbar">
-        <a href="index.html" class="logo">Nitish Gupta</a>
-        <ul class="nav-links">
-            <li class="dropdown">
-                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
-                <div class="dropdown-content">
-                    <a href="qualification.html">Education Qualification</a>
-                </div>
-            </li>
-            <li><a href="publications.html" class="nav-link">Publications</a></li>
-            <li class="dropdown">
-                <a href="#" class="nav-link">Workshop/Conference</a>
-                <div class="dropdown-content">
-                    <a href="confrence.html">Conference</a>
-                    <a href="workshop.html">Workshop</a>
-                </div>
-            </li>
-            <li><a href="activity.html" class="nav-link">Professional Activity</a></li>
-            <li><a href="reference.html" class="nav-link">References</a></li>
-        </ul>
-        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      <a href="index.html" class="logo">Nitish Gupta</a>
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+          <div class="dropdown-content">
+            <a href="qualification.html">Education Qualification</a>
+          </div>
+        </li>
+        <li><a href="publications.html" class="nav-link">Publications</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link">Workshop/Conference</a>
+          <div class="dropdown-content">
+            <a href="confrence.html">Conference</a>
+            <a href="workshop.html">Workshop</a>
+          </div>
+        </li>
+        <li><a href="activity.html" class="nav-link">Professional Activity</a></li>
+        <li><a href="reference.html" class="nav-link">References</a></li>
+      </ul>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
     </nav>
 
+    <!-- Publications Page -->
     <section class="publications-page">
-        <h2 class="section-title">Publications</h2>
+      <h2 class="section-title">Publications</h2>
 
-        <!-- Category 1 -->
-        <div class="publication-category">
-            <h3 class="category-title">Articles In Peer-reviewed International Journals (SCI/SCIE/ESCI and SCOPUS Indexed)</h3>
-            <ul class="publication-list">
-                
-                <li class="publication-item">
-                    <div class="publication-abstract">
-                        <h5 class="abstract-title">Abstract</h5>
-                        <p class="abstract-text">Comparative investigation of axial conduction and viscous dissipation in the entry area using a computational analysis within the local thermal non-equilibrium structure.</p>
-                    </div>
-                    <p class="publication-authors"><strong>Nitish Gupta</strong>, D. Bhargavi, and K. Vajravelu</p>
-                    <h4 class="publication-title">"Comparative investigation of axial conduction and viscous dissipation in the entry area: a computational analysis within the local thermal non-equilibrium structure"</h4>
-                    <p class="publication-journal">Numerical Heat Transfer, Part A: Applications</p>
-                    <div class="publication-details">
-                        <span class="publication-status">Accepted</span>
-                        <span class="publication-detail">Q2</span>
-                        <span class="publication-detail">IF 2.8</span>
-                    </div>
-                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
-                    <a href="#" class="publication-link" target="_blank"></a>
-                </li>
+      <!-- Category: Peer-reviewed Journals -->
+      <div class="publication-category">
+        <h3 class="category-title">
+          Articles In Peer-reviewed International Journals (SCI/SCIE/ESCI and SCOPUS Indexed)
+        </h3>
+        <ul class="publication-list">
+          <!-- Item 1 -->
+          <li class="publication-item">
+            <div class="publication-abstract">
+              <h5 class="abstract-title">Abstract</h5>
+              <p class="abstract-text">
+                Comparative investigation of axial conduction and viscous dissipation in the entry area: a computational analysis within the local thermal non-equilibrium structure.
+              </p>
+            </div>
+            <p class="publication-authors"><strong>Nitish Gupta</strong>, D. Bhargavi, and K. Vajravelu</p>
+            <h4 class="publication-title">
+              "Comparative investigation of axial conduction and viscous dissipation in the entry area: a computational analysis within the local thermal non-equilibrium structure"
+            </h4>
+            <p class="publication-journal">Numerical Heat Transfer, Part A: Applications</p>
+            <div class="publication-details">
+              <span class="publication-status">Accepted</span>
+              <span class="publication-detail">Q2</span>
+              <span class="publication-detail">IF 2.8</span>
+            </div>
+            <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down ml-2"></i></button>
+            <a href="#" class="publication-link" target="_blank"></a>
+          </li>
 
-                <li class="publication-item">
-                    <div class="publication-abstract">
-                        <h5 class="abstract-title">Abstract</h5>
-                        <p class="abstract-text">Computational analysis of magnetic field and porous fraction interactions on developing thermal fields in parallel plate channels with central porous layers.</p>
-                    </div>
-                    <p class="publication-authors"><strong>Nitish Gupta</strong></p>
-                    <h4 class="publication-title">"Computational Analysis of Magnetic Field and Porous Fraction Interactions on Developing Thermal Field in Parallel Plate Channels"</h4>
-                    <p class="publication-journal">Numerical Heat Transfer, Part B: Fundamentals</p>
-                    <div class="publication-details">
-                        <span class="publication-status">Accepted</span>
-                        <span class="publication-detail">Q3</span>
-                        <span class="publication-detail">IF 1.7</span>
-                    </div>
-                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
-                    <a href="#" class="publication-link" target="_blank"></a>
-                </li>
+          <!-- Item 2 -->
+          <li class="publication-item">
+            <div class="publication-abstract">
+              <h5 class="abstract-title">Abstract</h5>
+              <p class="abstract-text">
+                Computational analysis of magnetic field and porous fraction interactions on developing thermal fields in parallel plate channels with central porous layers under non-linear flow conditions.
+              </p>
+            </div>
+            <p class="publication-authors"><strong>Nitish Gupta</strong></p>
+            <h4 class="publication-title">
+              "Computational Analysis of Magnetic Field and Porous Fraction Interactions on Developing Thermal Field in Parallel Plate Channels"
+            </h4>
+            <p class="publication-journal">Numerical Heat Transfer, Part B: Fundamentals</p>
+            <div class="publication-details">
+              <span class="publication-status">Accepted</span>
+              <span class="publication-detail">Q3</span>
+              <span class="publication-detail">IF 1.7</span>
+            </div>
+            <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down ml-2"></i></button>
+            <a href="#" class="publication-link" target="_blank"></a>
+          </li>
 
-                <li class="publication-item">
-                    <div class="publication-abstract">
-                        <h5 class="abstract-title">Abstract</h5>
-                        <p class="abstract-text">This study examines the effects of the form drag (FD) and clear fluid compatible (CFC) viscous dissipation models on heat transfer in porous media flow.</p>
-                    </div>
-                    <p class="publication-authors"><strong>Nitish Gupta</strong>, D. Bhargavi, and K. Vajravelu</p>
-                    <h4 class="publication-title">"Viscous dissipation impacts on a developing thermal field in a saturated porous medium: An effective thermal management"</h4>
-                    <p class="publication-journal">Physics of Fluids, 2024; 36 (12)</p>
-                    <div class="publication-details">
-                        <span class="publication-detail">Q1</span>
-                        <span class="publication-detail">IF 4.3</span>
-                    </div>
-                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
-                    <a href="https://doi.org/10.1063/5.0241553" class="publication-link" target="_blank"></a>
-                </li>
-            </ul>
-        </div>
+          <!-- Item 3 -->
+          <li class="publication-item">
+            <div class="publication-abstract">
+              <h5 class="abstract-title">Abstract</h5>
+              <p class="abstract-text">
+                This study examines the effects of the form drag (FD) and clear fluid compatible (CFC) viscous dissipation models on heat transfer in porous media flow.
+              </p>
+            </div>
+            <p class="publication-authors"><strong>Nitish Gupta</strong>, D. Bhargavi, and K. Vajravelu</p>
+            <h4 class="publication-title">
+              "Viscous dissipation impacts on a developing thermal field in a saturated porous medium: An effective thermal management"
+            </h4>
+            <p class="publication-journal">Physics of Fluids, 2024; 36 (12)</p>
+            <div class="publication-details">
+              <span class="publication-detail">Q1</span>
+              <span class="publication-detail">IF 4.3</span>
+            </div>
+            <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down ml-2"></i></button>
+            <a href="https://doi.org/10.1063/5.0241553" class="publication-link" target="_blank"></a>
+          </li>
+        </ul>
+      </div>
 
-        <!-- Category 2 -->
-        <div class="publication-category">
-            <h3 class="category-title">ESCI/SCOPUS/Web of Science Indexed</h3>
-            <ul class="publication-list">
-                <li class="publication-item">
-                    <div class="publication-abstract">
-                        <h5 class="abstract-title">Abstract</h5>
-                        <p class="abstract-text">Analytical study of inclined magnetic field effects on Couette flow with Jeffrey fluid under local thermal non-equilibrium and viscous dissipation conditions.</p>
-                    </div>
-                    <p class="publication-authors"><strong>Nitish Gupta</strong>, D. Bhargavi</p>
-                    <h4 class="publication-title">"An analytical study of the impact of an inclined magnetic field on Couette flow with Jeffrey fluid"</h4>
-                    <p class="publication-journal">Applied Mechanics and Materials (AMM); 2024: 919</p>
-                    <div class="publication-details">
-                        <span class="publication-detail">SCOPUS</span>
-                    </div>
-                    <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down"></i></button>
-                    <a href="https://doi.org/10.4028/p-2QZJ3O" class="publication-link" target="_blank"></a>
-                </li>
-            </ul>
-        </div>
+      <!-- Category: ESCI/SCOPUS -->
+      <div class="publication-category">
+        <h3 class="category-title">Articles In Peer-reviewed International Journals (ESCI/SCOPUS Indexed)</h3>
+        <ul class="publication-list">
+          <li class="publication-item">
+            <div class="publication-abstract">
+              <h5 class="abstract-title">Abstract</h5>
+              <p class="abstract-text">
+                Analytical study of inclined magnetic field effects on Couette flow with Jeffrey fluid under local thermal non-equilibrium and viscous dissipation conditions.
+              </p>
+            </div>
+            <p class="publication-authors"><strong>Nitish Gupta</strong>, D. Bhargavi</p>
+            <h4 class="publication-title">
+              "An analytical study of the impact of an inclined magnetic field on Couette flow with Jeffrey fluid"
+            </h4>
+            <p class="publication-journal">Applied Mechanics and Materials (AMM); 2024: 919</p>
+            <button class="mobile-abstract-toggle">Abstract <i class="fas fa-chevron-down ml-2"></i></button>
+            <a href="https://doi.org/10.4028/p-2QZJ3O" class="publication-link" target="_blank"></a>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <script>
-        // Navbar Scroll Effect
-        let lastScroll = 0;
-        const navbar = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                navbar.classList.add('hidden');
-            } else {
-                navbar.classList.remove('hidden');
-            }
-            lastScroll = currentScroll;
+      // 1. Navbar Scroll behavior
+      let lastScroll = 0;
+      const navbar = document.querySelector('.navbar');
+
+      window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > lastScroll && currentScroll > 100) {
+          navbar.classList.add('hidden');
+        } else {
+          navbar.classList.remove('hidden');
+        }
+        lastScroll = currentScroll;
+      });
+
+      // 2. Mobile Menu Toggle
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      const navLinks = document.querySelector('.nav-links');
+
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+
+      // 3. Mobile Abstract Toggle
+      document.querySelectorAll('.mobile-abstract-toggle').forEach(button => {
+        button.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const item = button.closest('.publication-item');
+          item.classList.toggle('active');
+          const icon = button.querySelector('i');
+          icon.classList.toggle('fa-chevron-down');
+          icon.classList.toggle('fa-chevron-up');
         });
+      });
 
-        // Mobile Menu
-        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('active');
+      // 4. Reveal Animation on Scroll
+      const observerOptions = { threshold: 0.1 };
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
         });
+      }, observerOptions);
 
-        // Abstract Toggle
-        document.querySelectorAll('.mobile-abstract-toggle').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                btn.parentElement.classList.toggle('active');
-            });
-        });
-
-        // Reveal on Scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.publication-item').forEach(item => observer.observe(item));
+      document.querySelectorAll('.publication-item').forEach(item => {
+        observer.observe(item);
+      });
     </script>
-</body>
+  </body>
 </html>
