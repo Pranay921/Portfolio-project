@@ -1,290 +1,704 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nitish Gupta | Publications</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nitish Gupta | Publications</title>
 
-    <style>
-        :root {
-            --primary: #ff6b6b;
-            --secondary: #4ecdc4;
-            --accent: #ffe66d;
-            --dark: #292f36;
-            --light: #f7fff7;
-            --pop1: #ff9f1c;
-            --pop2: #ff6392;
-            --pop3: #7b2cbf;
-        }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
 
-        body {
-            font-family: "Poppins", sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
-            overflow-x: hidden;
-        }
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-        /* Navbar */
-        .navbar {
-            position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 5%;
-            display: flex; justify-content: space-between; align-items: center;
-            background-color: rgba(255, 255, 255, 0.9); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
-            z-index: 1000; transition: transform 0.3s ease;
-        }
-        .navbar.hidden { transform: translateY(-100%); }
-        .logo {
-            font-family: "Dancing Script", cursive; font-size: 1.8rem; font-weight: 700;
-            color: var(--pop3); text-decoration: none; animation: colorShift 8s infinite alternate;
-        }
-        @keyframes colorShift {
-            0% { color: var(--pop3); } 33% { color: var(--pop1); }
-            66% { color: var(--pop2); } 100% { color: var(--primary); }
-        }
-        .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
-        .nav-link { text-decoration: none; color: var(--dark); font-weight: 500; transition: 0.3s; display: flex; align-items: center; gap: 0.3rem; }
-        .nav-link:hover { color: var(--primary); }
+  <style>
+    :root {
+      --primary: #ff6b6b;
+      --secondary: #4ecdc4;
+      --accent: #ffe66d;
+      --dark: #292f36;
+      --light: #f7fff7;
+      --pop1: #ff9f1c;
+      --pop2: #ff6392;
+      --pop3: #7b2cbf;
+    }
 
-        .dropdown { position: relative; }
-        .dropdown-content {
-            display: none; position: absolute; background: white; min-width: 200px;
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1); border-radius: 10px; padding: 0.5rem 0;
-        }
-        .dropdown:hover .dropdown-content { display: block; }
-        .dropdown-content a { color: var(--dark); padding: 0.8rem 1rem; text-decoration: none; display: block; }
-        .dropdown-content a:hover { background: #f1f1f1; color: var(--primary); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
 
-        /* Publications Content */
-        .publications-page { padding: 8rem 5% 4rem; min-height: 100vh; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); }
-        .section-title { font-family: "Playfair Display", serif; font-size: 2.5rem; text-align: center; color: var(--pop3); margin-bottom: 4rem; position: relative; }
-        .section-title::after { content: ""; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 2px; }
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
 
-        .publication-category { max-width: 1100px; margin: 0 auto 5rem; }
-        .category-title { font-size: 1.6rem; color: var(--pop1); margin-bottom: 2rem; border-bottom: 2px dashed var(--secondary); padding-bottom: 0.5rem; font-weight: 600; }
+    .navbar.hidden {
+      transform: translateY(-100%);
+    }
 
-        .publication-list { list-style: none; }
-        .publication-item {
-            background: white; padding: 1.8rem; margin-bottom: 1.5rem; border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 6px solid var(--primary);
-            position: relative; transition: all 0.3s ease; opacity: 0; transform: translateY(20px);
-        }
-        .publication-item.visible { opacity: 1; transform: translateY(0); }
-        .publication-item:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+    .logo {
+      font-family: "Dancing Script", cursive;
+      font-size: 2rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--pop3);
+      animation: colorShift 8s infinite alternate;
+    }
 
-        .publication-authors { color: #666; font-style: italic; margin-bottom: 0.5rem; font-size: 0.95rem; }
-        .publication-title { font-size: 1.3rem; font-weight: 600; color: var(--dark); margin-bottom: 0.8rem; line-height: 1.4; }
-        .publication-journal { font-weight: 600; color: var(--pop3); display: block; margin-bottom: 0.5rem; }
+    @keyframes colorShift {
+      0% { color: var(--pop3); }
+      33% { color: var(--pop1); }
+      66% { color: var(--pop2); }
+      100% { color: var(--primary); }
+    }
 
-        .publication-details { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
-        .publication-detail { background: var(--accent); padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
-        .publication-status { background: var(--secondary); color: white; padding: 0.3rem 0.9rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
 
-        /* Abstract Box */
-        .publication-abstract {
-            position: absolute; bottom: 105%; left: 0; width: 100%; background: white;
-            padding: 1.5rem; border-radius: 12px; box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-            z-index: 100; opacity: 0; visibility: hidden; transition: 0.3s ease; pointer-events: none;
-            border: 1px solid #eee;
-        }
-        .publication-item:hover .publication-abstract { opacity: 1; visibility: visible; }
-        .abstract-title { color: var(--primary); font-weight: 700; margin-bottom: 0.5rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .abstract-text { font-size: 0.9rem; line-height: 1.6; color: #444; }
+    .nav-item {
+      position: relative;
+    }
 
-        .publication-link { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-        .mobile-abstract-toggle { display: none; position: relative; z-index: 10; background: var(--primary); color: white; border: none; padding: 0.5rem 1.2rem; border-radius: 25px; cursor: pointer; margin-top: 1rem; font-weight: 600; }
+    .nav-link {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: 0.3s ease;
+      position: relative;
+      padding: 0.4rem 0;
+    }
 
-        /* Mobile Styles */
-        @media (max-width: 768px) {
-            .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: white; flex-direction: column; padding: 2rem; transition: 0.4s; z-index: 999; }
-            .nav-links.active { left: 0; }
-            .mobile-menu-btn { display: block; }
-            .publication-abstract { position: static; display: none; opacity: 1; visibility: visible; box-shadow: none; padding: 1rem; margin-top: 1rem; background: #f9f9f9; border-left: 3px solid var(--secondary); }
-            .publication-item.active .publication-abstract { display: block; }
-            .mobile-abstract-toggle { display: inline-block; }
-            .publication-item:hover .publication-abstract { display: none; }
-            .publication-item.active:hover .publication-abstract { display: block; }
-        }
-    </style>
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 120%;
+      left: 0;
+      background: white;
+      border-radius: 10px;
+      min-width: 220px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      display: none;
+      overflow: hidden;
+      z-index: 1000;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.9rem 1rem;
+      text-decoration: none;
+      color: var(--dark);
+      transition: 0.3s ease;
+    }
+
+    .dropdown-content a:hover {
+      background: #f4f4f4;
+      color: var(--primary);
+      padding-left: 1.2rem;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* PAGE */
+    .publications-page {
+      min-height: 100vh;
+      padding: 7rem 5% 4rem;
+      background: linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: var(--pop3);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -10px;
+      width: 90px;
+      height: 4px;
+      border-radius: 10px;
+      background: linear-gradient(90deg,var(--primary),var(--secondary));
+    }
+
+    .publication-category {
+      max-width: 1200px;
+      margin: auto;
+      margin-bottom: 4rem;
+    }
+
+    .category-title {
+      font-size: 1.7rem;
+      margin-bottom: 2rem;
+      color: var(--pop1);
+      border-bottom: 2px dashed var(--secondary);
+      padding-bottom: 0.6rem;
+    }
+
+    .publication-list {
+      list-style: none;
+    }
+
+    .publication-item {
+      position: relative;
+      background: white;
+      border-left: 5px solid var(--primary);
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin-bottom: 1.7rem;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(25px);
+      overflow: visible;
+    }
+
+    .publication-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .publication-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    }
+
+    .publication-authors {
+      font-size: 0.98rem;
+      color: #666;
+      margin-bottom: 0.7rem;
+      font-style: italic;
+    }
+
+    .publication-title {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .publication-journal {
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .publication-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+    }
+
+    .publication-detail,
+    .publication-status {
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .publication-detail {
+      background: var(--accent);
+    }
+
+    .publication-status {
+      background: var(--secondary);
+      color: white;
+    }
+
+    .publication-link {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+
+    /* ABSTRACT */
+    .publication-abstract {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 0;
+      width: 100%;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 20;
+    }
+
+    .publication-item:hover .publication-abstract {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .abstract-title {
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .abstract-text {
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .mobile-abstract-toggle {
+      display: none;
+      margin-top: 1rem;
+      border: none;
+      background: var(--primary);
+      color: white;
+      padding: 0.45rem 0.9rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    .mobile-abstract-toggle i {
+      margin-left: 6px;
+      transition: 0.3s ease;
+    }
+
+    .publication-item.active .mobile-abstract-toggle i {
+      transform: rotate(180deg);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: white;
+        width: 80%;
+        height: calc(100vh - 70px);
+        padding: 2rem;
+        align-items: flex-start;
+        transition: 0.3s ease;
+        box-shadow: 2px 0 20px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        width: 100%;
+      }
+
+      .dropdown.active .dropdown-content {
+        display: block;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .category-title {
+        font-size: 1.4rem;
+      }
+
+      .publication-item {
+        padding: 1.2rem;
+      }
+
+      .publication-title {
+        font-size: 1.05rem;
+      }
+
+      .publication-abstract {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        left: auto;
+        display: none;
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        box-shadow: none;
+        border: 1px solid #e7e7e7;
+        margin-top: 1rem;
+        padding: 1rem;
+        max-height: 0;
+        overflow: hidden;
+      }
+
+      .publication-item:hover .publication-abstract {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .mobile-abstract-toggle {
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 1.7rem;
+      }
+
+      .publication-details {
+        gap: 0.5rem;
+      }
+
+      .publication-detail,
+      .publication-status {
+        font-size: 0.72rem;
+      }
+    }
+  </style>
+
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <a href="index.html" class="logo">Nitish Gupta</a>
-        <ul class="nav-links">
-            <li class="dropdown">
-                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
-                <div class="dropdown-content">
-                    <a href="qualification.html">Education Qualification</a>
-                </div>
-            </li>
-            <li><a href="publications.html" class="nav-link">Publications</a></li>
-            <li class="dropdown">
-                <a href="#" class="nav-link">Workshop/Conference</a>
-                <div class="dropdown-content">
-                    <a href="confrence.html">Conference</a>
-                    <a href="workshop.html">Workshop</a>
-                </div>
-            </li>
-            <li><a href="activity.html" class="nav-link">Professional Activity</a></li>
-            <li><a href="reference.html" class="nav-link">References</a></li>
-        </ul>
-        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
-    </nav>
+  <!-- NAVBAR -->
 
-    <!-- Main Content -->
-    <section class="publications-page">
-        <h2 class="section-title">Research Publications</h2>
+  <nav class="navbar">
+    <a href="index.html" class="logo">Nitish Gupta</a>
 
-        <!-- Category: International Journals -->
-        <div class="publication-category">
-            <h3 class="category-title">Articles In Peer-reviewed International Journals (SCI/SCIE/ESCI and SCOPUS)</h3>
-            <ul class="publication-list">
-                
-                <!-- Paper 1 -->
-                <li class="publication-item">
-                    <div class="publication-abstract">
-                        <h5 class="abstract-title">Abstract</h5>
-                        <p class="abstract-text">This work provides a comparative investigation of axial conduction and viscous dissipation in the entry area using a computational analysis within the local thermal non-equilibrium structure.</p>
-                    </div>
-                    <p class="publication-authors"><strong>Nitish Gupta</strong>, D. Bhargavi, and K. Vajravelu</p>
-                    <h4 class="publication-title">"Comparative investigation of axial conduction and viscous dissipation in the entry area: a computational analysis within the local thermal non-equilibrium structure"</h4>
-                    <span class="publication-journal">Numerical Heat Transfer, Part A: Applications</span>
-                    <div class="publication-details">
-                        <span class="publication-status">Accepted</span>
-                        <span class="publication-detail">Q2</span>
-                        <span class="publication-detail">IF: 2.8</span>
-                    </div>
-                    <button class="mobile-abstract-toggle">View Abstract <i class="fas fa-chevron-down"></i></button>
-                    <a href="#" class="publication-link" target="_blank"></a>
-                </li>
+```
+<ul class="nav-links">
+  <li class="nav-item dropdown">
+    <a href="index.html" class="nav-link">
+      <i class="fas fa-home"></i> Home
+    </a>
 
-                <!-- Paper 2 -->
-                <li class="publication-item">
-                    <div class="publication-abstract">
-                        <h5 class="abstract-title">Abstract</h5>
-                        <p class="abstract-text">Analyzes the interaction between magnetic fields and porous fractions on developing thermal fields in parallel plate channels, focusing on efficiency in thermal systems.</p>
-                    </div>
-                    <p class="publication-authors"><strong>Nitish Gupta</strong></p>
-                    <h4 class="publication-title">"Computational Analysis of Magnetic Field and Porous Fraction Interactions on Developing Thermal Field in Parallel Plate Channels"</h4>
-                    <span class="publication-journal">Numerical Heat Transfer, Part B: Fundamentals</span>
-                    <div class="publication-details">
-                        <span class="publication-status">Accepted</span>
-                        <span class="publication-detail">Q3</span>
-                        <span class="publication-detail">IF: 1.7</span>
-                    </div>
-                    <button class="mobile-abstract-toggle">View Abstract <i class="fas fa-chevron-down"></i></button>
-                    <a href="#" class="publication-link" target="_blank"></a>
-                </li>
+    <div class="dropdown-content">
+      <a href="qualification.html">Education Qualification</a>
+    </div>
+  </li>
 
-                <!-- Paper 3 -->
-                <li class="publication-item">
-                    <div class="publication-abstract">
-                        <h5 class="abstract-title">Abstract</h5>
-                        <p class="abstract-text">Investigation of the physical applications of the form drag and clear fluid compatible viscous dissipation models on heat transfer in porous media flow.</p>
-                    </div>
-                    <p class="publication-authors"><strong>Nitish Gupta</strong>, D. Bhargavi, and K. Vajravelu</p>
-                    <h4 class="publication-title">"Viscous dissipation impacts on a developing thermal field in a saturated porous medium: An effective thermal management"</h4>
-                    <span class="publication-journal">Physics of Fluids, 2024; 36 (12)</span>
-                    <div class="publication-details">
-                        <span class="publication-detail">Q1</span>
-                        <span class="publication-detail">IF: 4.3</span>
-                        <span class="publication-detail">DOI: 10.1063/5.0241553</span>
-                    </div>
-                    <button class="mobile-abstract-toggle">View Abstract <i class="fas fa-chevron-down"></i></button>
-                    <a href="https://doi.org/10.1063/5.0241553" class="publication-link" target="_blank"></a>
-                </li>
-            </ul>
-        </div>
+  <li class="nav-item">
+    <a href="publications.html" class="nav-link">Publications</a>
+  </li>
 
-        <!-- Category: Indexed Journals -->
-        <div class="publication-category">
-            <h3 class="category-title">ESCI / SCOPUS Indexed Publications</h3>
-            <ul class="publication-list">
-                <!-- Paper 4 -->
-                <li class="publication-item">
-                    <div class="publication-abstract">
-                        <h5 class="abstract-title">Abstract</h5>
-                        <p class="abstract-text">Explores the impact of inclined magnetic fields on Couette flow using the Jeffrey fluid model, emphasizing local thermal non-equilibrium effects.</p>
-                    </div>
-                    <p class="publication-authors"><strong>Nitish Gupta</strong>, D. Bhargavi</p>
-                    <h4 class="publication-title">"An analytical study of the impact of an inclined magnetic field on Couette flow with Jeffrey fluid"</h4>
-                    <span class="publication-journal">Applied Mechanics and Materials (AMM); 2024: 919</span>
-                    <div class="publication-details">
-                        <span class="publication-detail">SCOPUS</span>
-                        <span class="publication-detail">DOI: 10.4028/p-2QZJ3O</span>
-                    </div>
-                    <button class="mobile-abstract-toggle">View Abstract <i class="fas fa-chevron-down"></i></button>
-                    <a href="https://doi.org/10.4028/p-2QZJ3O" class="publication-link" target="_blank"></a>
-                </li>
-            </ul>
-        </div>
+  <li class="nav-item dropdown">
+    <a href="#" class="nav-link">Workshop/Conference</a>
 
-        <!-- Category: Ongoing / Upcoming (EOR Project) -->
-        <div class="publication-category">
-            <h3 class="category-title">Selected Research Projects & Manuscripts</h3>
-            <ul class="publication-list">
-                <li class="publication-item">
-                    <p class="publication-authors"><strong>Nitish Gupta</strong>, (In Progress)</p>
-                    <h4 class="publication-title">"Physical Application of Stratified Reservoir Models in Enhanced Oil Recovery (EOR) through Porous Media"</h4>
-                    <span class="publication-journal">Focusing on three-layer fluid flow in anisotropic porous media.</span>
-                    <div class="publication-details">
-                        <span class="publication-status">In Preparation</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
+    <div class="dropdown-content">
+      <a href="confrence.html">Conference</a>
+      <a href="workshop.html">Workshop</a>
+    </div>
+  </li>
 
-    <!-- Scripts -->
-    <script>
-        // Navbar Hide/Show logic
-        let lastScroll = 0;
-        const navbar = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                navbar.classList.add('hidden');
-            } else {
-                navbar.classList.remove('hidden');
-            }
-            lastScroll = currentScroll;
+  <li class="nav-item">
+    <a href="activity.html" class="nav-link">Professional Activity</a>
+  </li>
+
+  <li class="nav-item">
+    <a href="reference.html" class="nav-link">References</a>
+  </li>
+</ul>
+
+<button class="mobile-menu-btn">
+  <i class="fas fa-bars"></i>
+</button>
+```
+
+  </nav>
+
+  <!-- PUBLICATIONS -->
+
+  <section class="publications-page">
+
+```
+<h2 class="section-title">Publications</h2>
+
+<div class="publication-category">
+
+  <h3 class="category-title">
+    Articles In Peer-reviewed International Journals (SCI/SCIE/ESCI and SCOPUS Indexed)
+  </h3>
+
+  <ul class="publication-list">
+
+    <!-- Publication 1 -->
+    <li class="publication-item">
+
+      <div class="publication-abstract">
+        <h5 class="abstract-title">Abstract</h5>
+        <p class="abstract-text">
+          Comparative computational analysis of axial conduction and viscous dissipation in the thermal entrance region under LTNE conditions.
+        </p>
+      </div>
+
+      <p class="publication-authors">
+        <span class="font-bold">Nitish Gupta</span>, D. Bhargavi, and K. Vajravelu
+      </p>
+
+      <h4 class="publication-title">
+        "Comparative investigation of axial conduction and viscous dissipation in the entry area: a computational analysis within the local thermal non-equilibrium structure"
+      </h4>
+
+      <p class="publication-journal">
+        Numerical Heat Transfer, Part A: Applications
+      </p>
+
+      <div class="publication-details">
+        <span class="publication-status">Accepted</span>
+        <span class="publication-detail">Q2</span>
+        <span class="publication-detail">IF 2.8</span>
+      </div>
+
+      <button class="mobile-abstract-toggle">
+        Abstract <i class="fas fa-chevron-down"></i>
+      </button>
+
+      <a href="#" class="publication-link" target="_blank"></a>
+    </li>
+
+    <!-- Publication 2 -->
+    <li class="publication-item">
+
+      <div class="publication-abstract">
+        <h5 class="abstract-title">Abstract</h5>
+        <p class="abstract-text">
+          Computational analysis of magnetic field and porous fraction interactions on developing thermal fields.
+        </p>
+      </div>
+
+      <p class="publication-authors">
+        <span class="font-bold">Nitish Gupta</span>
+      </p>
+
+      <h4 class="publication-title">
+        "Computational Analysis of Magnetic Field and Porous Fraction Interactions on Developing Thermal Field in Parallel Plate Channels"
+      </h4>
+
+      <p class="publication-journal">
+        Numerical Heat Transfer, Part B: Fundamentals
+      </p>
+
+      <div class="publication-details">
+        <span class="publication-status">Accepted</span>
+        <span class="publication-detail">Q3</span>
+        <span class="publication-detail">IF 1.7</span>
+      </div>
+
+      <button class="mobile-abstract-toggle">
+        Abstract <i class="fas fa-chevron-down"></i>
+      </button>
+
+      <a href="#" class="publication-link"></a>
+    </li>
+
+  </ul>
+</div>
+```
+
+  </section>
+
+  <script>
+
+    // NAVBAR HIDE ON SCROLL
+    let lastScroll = 0;
+
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if(currentScroll <= 0){
+        navbar.classList.remove('hidden');
+        return;
+      }
+
+      if(currentScroll > lastScroll){
+        navbar.classList.add('hidden');
+      } else {
+        navbar.classList.remove('hidden');
+      }
+
+      lastScroll = currentScroll;
+    });
+
+    // MOBILE MENU
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // MOBILE DROPDOWN
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdown => {
+      const link = dropdown.querySelector('.nav-link');
+
+      link.addEventListener('click', (e) => {
+        if(window.innerWidth <= 768){
+          e.preventDefault();
+          dropdown.classList.toggle('active');
+        }
+      });
+    });
+
+    // ABSTRACT TOGGLE
+    const toggles = document.querySelectorAll('.mobile-abstract-toggle');
+
+    toggles.forEach(toggle => {
+
+      toggle.addEventListener('click', function(e){
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        const publicationItem = this.closest('.publication-item');
+        const abstract = publicationItem.querySelector('.publication-abstract');
+
+        const icon = this.querySelector('i');
+
+        // CLOSE OTHERS
+        document.querySelectorAll('.publication-item.active').forEach(item => {
+          if(item !== publicationItem){
+            closeAbstract(item);
+          }
         });
 
-        // Mobile Menu Logic
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        // TOGGLE CURRENT
+        if(publicationItem.classList.contains('active')){
+          closeAbstract(publicationItem);
+        }
+        else {
+          openAbstract(publicationItem);
+        }
 
-        // Abstract Toggle Logic for Mobile
-        document.querySelectorAll('.mobile-abstract-toggle').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault(); e.stopPropagation();
-                const item = button.closest('.publication-item');
-                item.classList.toggle('active');
-                button.innerHTML = item.classList.contains('active') ? 
-                    'Hide Abstract <i class="fas fa-chevron-up"></i>' : 
-                    'View Abstract <i class="fas fa-chevron-down"></i>';
-            });
-        });
+      });
 
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.1 });
+    });
 
-        document.querySelectorAll('.publication-item').forEach(item => observer.observe(item));
-    </script>
+    function openAbstract(publicationItem){
+
+      const abstract = publicationItem.querySelector('.publication-abstract');
+      const icon = publicationItem.querySelector('.mobile-abstract-toggle i');
+
+      abstract.style.display = 'block';
+      abstract.style.maxHeight = abstract.scrollHeight + 'px';
+
+      publicationItem.classList.add('active');
+
+      icon.classList.remove('fa-chevron-down');
+      icon.classList.add('fa-chevron-up');
+    }
+
+    function closeAbstract(publicationItem){
+
+      const abstract = publicationItem.querySelector('.publication-abstract');
+      const icon = publicationItem.querySelector('.mobile-abstract-toggle i');
+
+      abstract.style.maxHeight = '0px';
+
+      publicationItem.classList.remove('active');
+
+      icon.classList.remove('fa-chevron-up');
+      icon.classList.add('fa-chevron-down');
+
+      setTimeout(() => {
+        if(!publicationItem.classList.contains('active')){
+          abstract.style.display = 'none';
+        }
+      }, 300);
+    }
+
+    // INTERSECTION ANIMATION
+    const publicationItems = document.querySelectorAll('.publication-item');
+
+    const observer = new IntersectionObserver(entries => {
+
+      entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+
+      });
+
+    }, {
+      threshold: 0.1
+    });
+
+    publicationItems.forEach(item => {
+      observer.observe(item);
+    });
+
+  </script>
+
 </body>
 </html>
